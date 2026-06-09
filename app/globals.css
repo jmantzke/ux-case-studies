@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@config '../tailwind.config.js';
+
+/* Bridge next/font variable to Tailwind's font-body utility */
+@theme inline {
+  --font-body: var(--font-ibm-plex-sans), sans-serif;
+}
+
+/* ─── Primitive color tokens ────────────────────────────────────────────────── */
+:root {
+  /* Primary — warm amber */
+  --color-primary-100: #fff8e3;
+  --color-primary-200: #fff0c4;
+  --color-primary-300: #ffe39b;
+  --color-primary-400: #ffa126;
+  --color-primary-500: #ffa413;
+  --color-primary-600: #b35e00;
+  --color-primary-700: #a65700;
+  --color-primary-800: #673000;
+  --color-primary-900: #301000;
+
+  /* Neutral — warm grey */
+  --color-neutral-100: #dbd8d5;
+  --color-neutral-200: #c1bdba;
+  --color-neutral-300: #a7a3a0;
+  --color-neutral-400: #8d8885;
+  --color-neutral-500: #736e6b;
+  --color-neutral-600: #595452;
+  --color-neutral-700: #3f3937;
+  --color-neutral-800: #2b2726;
+  --color-neutral-900: #181716;
+
+  /* Secondary — teal */
+  --color-secondary-100: #f4fbfc;
+  --color-secondary-200: #e3f3f6;
+  --color-secondary-300: #cfe9ed;
+  --color-secondary-400: #b7dee3;
+  --color-secondary-500: #9ed2db;
+  --color-secondary-600: #2c7f8d;
+  --color-secondary-700: #176270;
+  --color-secondary-800: #0f4a54;
+  --color-secondary-900: #08343b;
+}
+
+/* ─── Semantic color roles — light mode ─────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --surface-page:       var(--color-neutral-300);
+  --surface-1:          var(--color-neutral-200);
+  --surface-2:          var(--color-neutral-100);
+  --surface-3:          #ffffff;
+  --surface-page-alt:   var(--color-primary-600);
+  --surface-card-rest:  var(--color-primary-600);
+  --surface-card-hover: var(--color-primary-700);
+
+  /* Typography */
+  --text-body:            var(--color-neutral-900);
+  --text-header:          var(--color-primary-800);
+  --text-header-reversed: #ffffff;
+  --text-caption:         var(--color-primary-600);
+  --text-slash:           var(--color-neutral-700);
+  --text-brand-enfineitz: var(--color-primary-700);
+  --text-brand-stil:      var(--color-neutral-900);
+
+  /* Borders */
+  --border-card-rest:   var(--color-primary-700);
+  --border-card-hover:  #000000;
+
+  /* Accent */
+  --accent-decorative-corner: var(--color-neutral-400);
+
+  /* Interaction */
+  --link-rest:    var(--color-neutral-700);
+  --link-hover:   #ffffff;
+  --link-active:  var(--color-neutral-800);
+  --crumb-rest:   var(--color-primary-600);
+  --crumb-static: var(--color-neutral-700);
+  --crumb-hover:  var(--color-neutral-900);
+  --crumb-active: var(--color-primary-700);
+}
+
+/* ─── Semantic color roles — dark mode ──────────────────────────────────────── */
+.dark {
+  /* Surfaces */
+  --surface-page:       var(--color-neutral-600);
+  --surface-1:          var(--color-neutral-700);
+  --surface-2:          var(--color-neutral-800);
+  --surface-3:          var(--color-neutral-900);
+  --surface-page-alt:   var(--color-primary-600);
+  --surface-card-rest:  var(--color-primary-700);
+  --surface-card-hover: var(--color-primary-600);
+
+  /* Typography */
+  --text-body:            #ffffff;
+  --text-header:          var(--color-neutral-900);
+  --text-header-reversed: #ffffff;
+  --text-caption:         #ffffff;
+  --text-slash:           var(--color-neutral-800);
+  --text-brand-enfineitz: #000000;
+  --text-brand-stil:      #ffffff;
+
+  /* Borders */
+  --border-card-rest:   var(--color-primary-800);
+  --border-card-hover:  #ffffff;
+
+  /* Accent */
+  --accent-decorative-corner: #ffffff;
+
+  /* Interaction */
+  --link-rest:    var(--color-neutral-100);
+  --link-hover:   #ffffff;
+  --link-active:  #ffffff;
+  --crumb-rest:   var(--color-neutral-100);
+  --crumb-static: #ffffff;
+  --crumb-hover:  #ffffff;
+  --crumb-active: #ffffff;
+}

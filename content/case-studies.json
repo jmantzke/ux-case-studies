@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "wanderlist",
+    "title": "Wanderlist",
+    "client": "Personal Project",
+    "role": "Lead UX Designer",
+    "year": 2024,
+    "published": true,
+    "tags": ["AI", "Mobile", "UX Design"],
+    "coverImage": "/images/wanderlist-cover.webp",
+    "coverAlt": "Wanderlist AI-assisted road-trip planner",
+    "summary": "AI-assisted road-trip planner",
+    "sections": [
+      { "type": "hero", "heading": "Wanderlist", "subheading": "AI-assisted road-trip planner" },
+      { "type": "text", "heading": "Overview", "body": "Replace with your case study content." },
+      { "type": "image", "src": "/images/wanderlist-01.webp", "alt": "Wanderlist screenshot" },
+      { "type": "text", "heading": "Outcomes", "body": "Replace with outcomes." }
+    ]
+  },
+  {
+    "slug": "concept-to-collectible",
+    "title": "Concept to Collectible",
+    "client": "American Gold Trading",
+    "role": "Lead UX Designer",
+    "year": 2024,
+    "published": true,
+    "tags": ["Branding", "UX Design"],
+    "coverImage": "/images/concept-to-collectible-cover.webp",
+    "coverAlt": "American Gold Trading branding kit",
+    "summary": "American Gold Trading branding kit",
+    "sections": [
+      { "type": "hero", "heading": "Concept to Collectible", "subheading": "American Gold Trading branding kit" },
+      { "type": "text", "heading": "Overview", "body": "Replace with your case study content." },
+      { "type": "image", "src": "/images/concept-to-collectible-01.webp", "alt": "Branding kit screenshot" },
+      { "type": "text", "heading": "Outcomes", "body": "Replace with outcomes." }
+    ]
+  },
+  {
+    "slug": "geneva-un-study",
+    "title": "Geneva UN study",
+    "client": "United Nations",
+    "role": "UX Researcher",
+    "year": 2024,
+    "published": false,
+    "tags": ["UX Research", "Guerrilla Research"],
+    "coverImage": "/images/geneva-un-study-cover.webp",
+    "coverAlt": "Geneva UN guerrilla UX research study",
+    "summary": "Guerrilla UX research",
+    "sections": [
+      { "type": "hero", "heading": "Geneva UN study", "subheading": "Guerrilla UX research" },
+      { "type": "text", "heading": "Overview", "body": "Replace with your case study content." },
+      { "type": "image", "src": "/images/geneva-un-study-01.webp", "alt": "Research study screenshot" },
+      { "type": "text", "heading": "Outcomes", "body": "Replace with outcomes." }
+    ]
+  },
+  {
+    "slug": "pilot-vacation-trading",
+    "title": "Pilot vacation trading",
+    "client": "Confidential",
+    "role": "Lead UX Designer",
+    "year": 2025,
+    "published": true,
+    "tags": ["Workflow Design", "Systems Thinking"],
+    "coverImage": "/images/pilot-vacation-trading-cover.webp",
+    "coverAlt": "Pilot vacation trading — solving a complex bartering process",
+    "summary": "Solving a complex bartering process",
+    "sections": [
+      { "type": "hero", "heading": "Pilot vacation trading", "subheading": "Solving a complex bartering process" },
+      { "type": "text", "heading": "Overview", "body": "Replace with your case study content." },
+      { "type": "image", "src": "/images/pilot-vacation-trading-01.webp", "alt": "Bartering process diagram" },
+      { "type": "text", "heading": "Outcomes", "body": "Replace with outcomes." }
+    ]
+  },
+  {
+    "slug": "design-system-study",
+    "title": "Design system study",
+    "client": "Enterprise Client",
+    "role": "Lead UX Designer",
+    "year": 2025,
+    "published": false,
+    "tags": ["Design Systems", "Enterprise UX"],
+    "coverImage": "/images/design-system-study-cover.webp",
+    "coverAlt": "Enterprise UX adoption study",
+    "summary": "Enterprise UX adoption study",
+    "sections": [
+      { "type": "hero", "heading": "Design system study", "subheading": "Enterprise UX adoption study" },
+      { "type": "text", "heading": "Overview", "body": "Replace with your case study content." },
+      { "type": "image", "src": "/images/design-system-study-01.webp", "alt": "Design system screenshot" },
+      { "type": "text", "heading": "Outcomes", "body": "Replace with outcomes." }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "name": "Jürgen Mantzke",
+  "photo": "/images/bio-photo.webp",
+  "photoAlt": "Jürgen Mantzke, UX and product designer",
+  "identity": "The personal website of Jürgen Mantzke, UX and product designer",
+  "brandSummary": "Transforming complex systems into intuitive, high‑clarity experiences—combining deep user insight, rapid AI‑accelerated exploration, and decisive execution to bring order to ambiguity, streamline intricate workflows, and help teams move from scattered signals to confident, actionable outcomes.",
+  "paragraphs": [
+    "Replace this with your first career summary paragraph. This is where you introduce your background, your design philosophy, and what drives your work.",
+    "Replace this with your second paragraph. This might cover specific expertise, industries you've worked in, or the types of problems you're best equipped to solve.",
+    "Replace this with your third paragraph. This could speak to your approach to collaboration, your working style, or what you bring to teams and organizations."
+  ],
+  "certifications": [
+    {
+      "name": "Certification Name One",
+      "issuer": "Issuing Organization",
+      "year": 2024,
+      "badge": "/images/cert-badge-01.webp",
+      "badgeAlt": "Certification Name One badge",
+      "verifyUrl": "https://your-nft-verify-link-one.com",
+      "verifyLabel": "Verify credential"
+    },
+    {
+      "name": "Certification Name Two",
+      "issuer": "Issuing Organization",
+      "year": 2023,
+      "badge": "/images/cert-badge-02.webp",
+      "badgeAlt": "Certification Name Two badge",
+      "verifyUrl": "https://your-nft-verify-link-two.com",
+      "verifyLabel": "Verify credential"
+    },
+    {
+      "name": "Certification Name Three",
+      "issuer": "Issuing Organization",
+      "year": 2023,
+      "badge": "/images/cert-badge-03.webp",
+      "badgeAlt": "Certification Name Three badge",
+      "verifyUrl": "https://your-nft-verify-link-three.com",
+      "verifyLabel": "Verify credential"
+    }
+  ]
+}
