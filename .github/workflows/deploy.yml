@@ -36,7 +36,7 @@ jobs:
           port: ${{ secrets.VPS_PORT || 22 }}
           script: |
             set -e
-            cd /var/www/case-studies
+            cd ~/publicsubs_case_studies/case-studies.enfineitz.com
             git pull origin main
             npm ci --omit=dev
             npm run build
