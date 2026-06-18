@@ -20,84 +20,66 @@ export default function CaseStudyCard({
   title,
   summary,
   coverImage,
-  coverAlt,
-  tags = [],
-  year,
 }: CaseStudyCardProps) {
   return (
     <Link
       href={`/case-study/${slug}`}
-      className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--link-hover)] rounded-msm"
+      className={[
+        'group block',
+        // Fills its 2-column grid cell; capped at max-width 900 (Figma card-grid)
+        'w-full min-w-0 max-w-[900px]',
+        'rounded-msm',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--link-hover)]',
+      ].join(' ')}
       aria-label={`View case study: ${title}`}
     >
       <article
         className={[
-          // Base layout — from Figma: 300×180px, rounded-msm (16px), overflow hidden
-          'relative flex flex-col gap-16 overflow-hidden',
-          'w-[300px] h-[180px]',
-          'rounded-msm',
-          'pt-30 pb-48 px-30',
-          // Border
-          'border border-solid',
-          // Rest state colors — surface-card-rest, border-card-rest
-          'bg-[var(--surface-card-rest)] border-[var(--border-card-rest)]',
-          // Hover state colors — group-hover transitions
-          'group-hover:bg-[var(--surface-card-hover)] group-hover:border-[var(--border-card-hover)]',
-          // Smooth transition
+          // Base layout — surface/card/rest, rounded-msm (16px), clipped
+          'relative flex flex-col overflow-clip rounded-msm',
+          // Responsive card height: XS 140 · SM 160 · MD+ 180
+          'h-[140px] sm:h-[160px] md:h-[180px]',
+          // Responsive card margins: XS 20 · SM+ 32
+          'p-20 sm:p-32',
+          // Rest / hover surface (tokens)
+          'bg-[var(--surface-card-rest)] group-hover:bg-[var(--surface-card-hover)]',
           'transition-colors duration-200 ease-in-out',
         ].join(' ')}
       >
-        {/* ── Background image (right-anchored, decorative) ── */}
+        {/* ── Decorative background — anchored bottom-right (Figma card-bkg) ── */}
         <div
-          className={[
-            'absolute bottom-[-1px] right-[-1px]',
-            'h-[180px] w-[157px]',
-            // Rest: 60% opacity. Hover: full opacity
-            'opacity-60 group-hover:opacity-100',
-            'transition-opacity duration-200 ease-in-out',
-            'pointer-events-none',
-          ].join(' ')}
+          className="absolute bottom-0 right-0 h-[167px] w-[317px] overflow-clip pointer-events-none"
           aria-hidden="true"
         >
-          <Image
-            src={coverImage}
-            alt={coverAlt}
-            fill
-            className="object-cover"
-            sizes="157px"
-          />
+          <div className="absolute bottom-[-0.33px] right-0 h-[186px] w-[245px]">
+            <Image
+              src={coverImage}
+              alt=""
+              fill
+              sizes="245px"
+              className="object-cover"
+            />
+          </div>
         </div>
 
-        {/* ── Content ── */}
-        <div className="relative z-10 flex flex-col gap-16 w-[148px]">
-          {/* Title — mozilla-headline, h3 scale (24px/600/ls:1px) */}
-          <h3
-            className={[
-              'font-display font-semibold',
-              'text-h3 leading-snug tracking-wide',
-              // Active link color from token system
-              'text-[var(--link-active)]',
-              'group-hover:text-[var(--link-hover)]',
-              'transition-colors duration-200',
-            ].join(' ')}
-          >
+        {/* ── Title + subtitle (Figma title block) ── */}
+        <div
+          className={[
+            'relative z-10 flex flex-col w-full',
+            // title-subtitle-gap: XS 12 · SM 18 · MD+ 24
+            'gap-12 sm:gap-18 md:gap-24',
+            // interaction/link/active → white (dark theme)
+            'text-[var(--link-active)]',
+          ].join(' ')}
+        >
+          {/* Title — mozilla-headline Regular, font-size/50 (18px), tracking-tight.
+              Rest → white (link/active); hover → orange (link/rest). */}
+          <h3 className="font-display font-normal text-[18px] leading-none tracking-tight text-[var(--link-active)] group-hover:text-[var(--link-rest)] transition-colors duration-200">
             {title}
           </h3>
 
-          {/* Summary — visible at rest, stays on hover */}
-          <p
-            className={[
-              'font-body font-normal',
-              'text-h4 leading-relaxed tracking-tight',
-              'text-[var(--link-active)]',
-              'group-hover:text-[var(--link-hover)]',
-              'transition-colors duration-200',
-              // Constrain width so text doesn't run under the background image
-              'w-[240px]',
-              // Clamp to 2 lines at rest
-              'line-clamp-2',
-            ].join(' ')}
-          >
+          {/* Subtitle — ibm-plex-sans Regular, font-size/30 (14px), leading 30 */}
+          <p className="font-body font-normal text-[14px] leading-[30px]">
             {summary}
           </p>
         </div>

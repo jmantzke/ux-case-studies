@@ -41,7 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # Local artifacts
-enfineitz/
+/enfineitz/
 style.css.map
 *.backup
 *.before-cleanup
+

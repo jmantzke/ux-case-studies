@@ -12,12 +12,6 @@ const ibmPlexSans = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: 'Enfineitz — Jürgen Mantzke',
   description: 'The personal website of Jürgen Mantzke, UX and product designer',
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.png', type: 'image/png' },
-    ],
-  },
 }
 
 export default function RootLayout({
@@ -28,7 +22,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} h-full antialiased`}
+      className={`${ibmPlexSans.variable} dark h-full antialiased`}
     >
       <head>
         {/* mozilla-headline — Adobe Fonts kit nqe6jwf */}

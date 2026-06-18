@@ -1,280 +1,293 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
+import GlobalHeader from '@/components/GlobalHeader'
+import CornerDecoration from '@/components/CornerDecoration'
 import bioData from '@/content/bio.json'
+
+// ─── About me (Article template · Biography) ─────────────────────────────────
+// Rebuilt to match the Figma "template/article/biography" responsive set:
+//   XS 914:3158 · SM 913:2996 · MD 912:2874 · LG 909:2697 · XL 909:2794
+//
+// Layout switches at the `md` breakpoint (768px):
+//   • below md → stacked (header · horizontal nav · title · portrait + bio,
+//                certificates row, site credit)
+//   • md and up → two-column (portrait + bio article + certificate column,
+//                 right navigation rail)
 
 export const metadata: Metadata = {
   title: 'About me — Enfineitz',
   description: bioData.identity,
 }
 
+const NYT_URL = 'http://www.nytimes.com/2008/06/14/business/14offline.html'
+
+type Cert = {
+  name: string
+  issuer: string
+  year: number
+  certNumber?: string
+  badge: string
+  badgeAlt: string
+  verifyUrl: string
+  verifyLabel: string
+}
+
+const certifications = bioData.certifications as Cert[]
+
 export default function BioPage() {
   return (
-    <div
-      className={[
-        'relative flex items-start w-full min-h-screen',
-        'bg-[var(--surface-page-alt)]',
-      ].join(' ')}
-    >
-      {/* Decorative corner — top-left of entire page */}
-      <CornerDecoration position="top-left" />
+    <div className="relative w-full min-h-screen bg-[var(--surface-page-alt)]">
+      <StackedLayout />
+      <TwoColumnLayout />
+    </div>
+  )
+}
 
-      {/* ══ LEFT COLUMN — Navigation ══ */}
-      <aside
-        className={[
-          'relative flex-shrink-0',
-          'min-w-[194px] max-w-[340px] xl:w-[340px]',
-          'h-screen sticky top-0',
-          'pl-32 pt-32',
-        ].join(' ')}
-      >
-        <Navigation />
-        <CornerDecoration position="bottom-right" />
-      </aside>
+// ════════════════════════════════════════════════════════════════════════════
+// STACKED LAYOUT — xs / sm (below md)
+// ════════════════════════════════════════════════════════════════════════════
 
-      {/* ══ RIGHT COLUMN — Bio content ══ */}
-      <main
-        className={[
-          'relative flex flex-col flex-1 min-w-0',
-          'gap-30 min-h-screen',
-          'pr-32',
-        ].join(' ')}
-      >
-        <CornerDecoration position="top-left" />
+function StackedLayout() {
+  return (
+    <div className="relative flex flex-col md:hidden gap-16 items-center min-h-screen w-full">
+      <GlobalHeader />
 
-        {/* Top body: name anchored to bottom */}
-        <div
+      {/* Title block — horizontal navigation + page title */}
+      <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
+        <Navigation layout="horizontal" displayAbout={false} showCopyright={false} />
+        <PageTitle className="font-display text-[24px] font-[400] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
+      </div>
+
+      {/* Below — portrait + bio, certificates, site credit */}
+      <div className="relative flex flex-col flex-1 items-center p-8 sm:p-16 w-full">
+        <CornerDecoration
+          position="top-right"
+          className="absolute top-0 right-0 size-30 sm:size-32 pointer-events-none"
+        />
+
+        <div className="flex gap-16 items-start w-full pb-48">
+          <Portrait />
+
+          <div className="flex flex-col flex-1 min-w-0 gap-20 items-start">
+            <Paragraphs />
+
+            {/* Certificates — horizontal row */}
+            <div className="flex gap-16 items-start justify-center w-full">
+              {certifications.map((cert) => (
+                <div key={cert.name} className="w-[82px] h-[160px] shrink-0">
+                  <CertBadge cert={cert} />
+                </div>
+              ))}
+            </div>
+
+            {/* Site credit */}
+            <div className="flex items-center justify-center pt-8 w-full">
+              <CredentialsLine />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Page bottom-left corner */}
+      <CornerDecoration
+        position="bottom-left"
+        className="absolute bottom-0 left-0 size-30 sm:size-32 pointer-events-none"
+      />
+    </div>
+  )
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// TWO-COLUMN LAYOUT — md / lg / xl
+// ════════════════════════════════════════════════════════════════════════════
+
+function TwoColumnLayout() {
+  return (
+    <div className="relative hidden md:flex flex-col gap-24 items-center min-h-screen w-full">
+      <GlobalHeader />
+
+      {/* Title — centered, capped per breakpoint */}
+      <div className="w-full max-w-[1023px] lg:max-w-[1375px] xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
+        <PageTitle className="font-display text-[60px] font-[300] tracking-tight" />
+      </div>
+
+      {/* Top-right corner of the body */}
+      <CornerDecoration
+        position="top-right"
+        className="absolute top-[207px] xl:top-[191px] right-0 size-40 xl:size-48 pointer-events-none z-10"
+      />
+
+      {/* Body — content column + navigation rail */}
+      <div className="flex flex-1 gap-20 lg:gap-24 items-start justify-center w-full max-w-[1023px] lg:max-w-[1375px] xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
+        {/* Content — portrait + bio article + certificate column */}
+        <div className="flex gap-32 items-start flex-1 min-w-0 lg:flex-none lg:w-[688px] xl:w-[1012px] pb-48">
+          <Portrait className="w-[96px] h-[96px] lg:w-[128px] lg:h-[128px]" />
+
+          <div className="flex flex-1 min-w-0 gap-30 items-start">
+            <Paragraphs />
+
+            {/* Certificates — vertical column */}
+            <div className="flex flex-col gap-16 items-start max-w-[110px] min-w-[88px] shrink-0">
+              {certifications.map((cert) => (
+                <CertBadge key={cert.name} cert={cert} />
+              ))}
+              <CredentialsLine className="pt-24" />
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation rail */}
+        <aside
           className={[
-            'relative flex flex-col gap-8 items-start justify-end',
-            'h-[335px] w-full shrink-0',
+            'relative flex flex-col self-stretch items-start justify-between',
+            'md:min-w-[185px] md:max-w-[231px]',
+            'lg:min-w-[194px] lg:max-w-[340px]',
+            'xl:min-w-[340px] xl:max-w-[340px]',
+            'flex-1',
           ].join(' ')}
         >
-          <CornerDecoration position="bottom-right" />
+          <Navigation displayAbout={false} />
 
-          <h1
-            className={[
-              'font-display font-[200]',
-              'text-[96px] leading-none tracking-tighter',
-              'whitespace-nowrap',
-              'text-[var(--text-brand-enfineitz)]',
-            ].join(' ')}
-          >
-            About me
-          </h1>
-
-          <p
-            className={[
-              'font-body font-normal',
-              'text-body-lg leading-relaxed tracking-tight',
-              'text-[var(--text-caption)]',
-              'whitespace-nowrap shrink-0',
-            ].join(' ')}
-          >
-            {bioData.identity}
-          </p>
-        </div>
-
-        {/* Breadcrumbs */}
-        <nav
-          aria-label="Breadcrumb"
-          className="flex items-center gap-0 shrink-0"
-        >
-          {[
-            { label: 'Home', href: '/' },
-            { label: 'About me', href: '/bio' },
-          ].map((item, index) => (
-            <div key={item.href} className="flex items-center h-[22px]">
-              {index > 0 && (
-                <span
-                  className={[
-                    'font-display font-normal',
-                    'text-body-lg tracking-widest uppercase',
-                    'text-[var(--text-slash)]',
-                    'w-[7px] flex items-center justify-center',
-                  ].join(' ')}
-                  aria-hidden="true"
-                >
-                  /
-                </span>
-              )}
-              <div className="flex items-center pr-8">
-                {index === 1 ? (
-                  <span
-                    className={[
-                      'font-display font-normal',
-                      'text-body-lg tracking-widest uppercase',
-                      'text-[var(--crumb-static)]',
-                      'whitespace-nowrap',
-                    ].join(' ')}
-                  >
-                    {item.label}
-                  </span>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={[
-                      'font-display font-normal',
-                      'text-body-lg tracking-widest uppercase',
-                      'text-[var(--crumb-rest)]',
-                      'whitespace-nowrap',
-                      'hover:text-[var(--link-hover)]',
-                      'transition-colors duration-150',
-                    ].join(' ')}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            </div>
-          ))}
-        </nav>
-
-        {/* Bio content */}
-        <div className="flex flex-col gap-48 pb-64 max-w-[800px]">
-
-          {/* Photo + name */}
-          <div className="flex flex-col gap-24 items-start">
-            <div className="relative w-[140px] h-[140px] rounded-round overflow-hidden shrink-0">
-              <Image
-                src={bioData.photo}
-                alt={bioData.photoAlt}
-                fill
-                className="object-cover"
-                sizes="140px"
-              />
-            </div>
-            <h2
-              className={[
-                'font-display font-[300]',
-                'text-h1 leading-tight',
-                'text-[var(--text-brand-enfineitz)]',
-              ].join(' ')}
-            >
-              {bioData.name}
-            </h2>
+          {/* Rail bottom corner */}
+          <div className="flex items-end w-full shrink-0">
+            <CornerDecoration
+              position="bottom-right"
+              className="size-40 xl:size-48 shrink-0 pointer-events-none"
+            />
           </div>
+        </aside>
+      </div>
 
-          {/* Bio paragraphs */}
-          <div className="flex flex-col gap-24">
-            {bioData.paragraphs.map((para, i) => (
-              <p
-                key={i}
-                className={[
-                  'font-body font-normal',
-                  'text-h4 leading-relaxed',
-                  'text-[var(--text-body)]',
-                ].join(' ')}
-              >
-                {para}
-              </p>
-            ))}
-          </div>
-
-          {/* Certifications */}
-          {bioData.certifications.length > 0 && (
-            <div className="flex flex-col gap-24">
-              <h3
-                className={[
-                  'font-display font-medium',
-                  'text-h3 leading-snug tracking-wide',
-                  'text-[var(--text-brand-enfineitz)]',
-                ].join(' ')}
-              >
-                Certifications
-              </h3>
-              <div className="flex flex-wrap gap-24">
-                {bioData.certifications.map((cert) => (
-                  <div
-                    key={cert.name}
-                    className="flex flex-col gap-12 items-start"
-                  >
-                    <div className="relative w-[70px] h-[70px] shrink-0">
-                      <Image
-                        src={cert.badge}
-                        alt={cert.badgeAlt}
-                        fill
-                        className="object-contain"
-                        sizes="70px"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-4">
-                      <p
-                        className={[
-                          'font-body font-medium',
-                          'text-body leading-snug',
-                          'text-[var(--text-body)]',
-                        ].join(' ')}
-                      >
-                        {cert.name}
-                      </p>
-                      <p
-                        className={[
-                          'font-body font-normal',
-                          'text-body-sm',
-                          'text-[var(--text-caption)]',
-                        ].join(' ')}
-                      >
-                        {cert.issuer} · {cert.year}
-                      </p>
-                      <a
-                        href={cert.verifyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={[
-                          'font-body font-normal',
-                          'text-body-sm',
-                          'text-[var(--link-rest)]',
-                          'underline',
-                          'hover:text-[var(--link-hover)]',
-                          'transition-colors duration-150',
-                        ].join(' ')}
-                      >
-                        {cert.verifyLabel}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        <CornerDecoration position="bottom-right" />
-      </main>
+      {/* Page bottom-left corner */}
+      <CornerDecoration
+        position="bottom-left"
+        className="absolute bottom-0 left-0 size-40 xl:size-48 pointer-events-none"
+      />
     </div>
   )
 }
 
-// ─── Corner Decoration ────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════════════════════
+// SHARED PIECES
+// ════════════════════════════════════════════════════════════════════════════
 
-type CornerPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-
-function CornerDecoration({ position }: { position: CornerPosition }) {
-  const positionClasses: Record<CornerPosition, string> = {
-    'top-left':     'top-0 left-0',
-    'top-right':    'top-0 right-0',
-    'bottom-left':  'bottom-0 left-0',
-    'bottom-right': 'bottom-0 right-0',
-  }
-
-  const svgMap: Record<CornerPosition, string> = {
-    'top-left':     '/icons/upper-left.svg',
-    'top-right':    '/icons/upper-right.svg',
-    'bottom-left':  '/icons/lower-left.svg',
-    'bottom-right': '/icons/lower-right.svg',
-  }
-
+function PageTitle({ className }: { className?: string }) {
   return (
     <div
-      className={[
-        'absolute pointer-events-none',
-        'size-40 lg:size-40 xl:size-48',
-        positionClasses[position],
-      ].join(' ')}
-      aria-hidden="true"
+      className={['flex items-center gap-4 leading-none whitespace-nowrap', className]
+        .filter(Boolean)
+        .join(' ')}
     >
-      <img src={svgMap[position]} alt="" className="w-full h-full" />
+      <span className="text-[var(--text-slash)]">/</span>
+      <span className="text-[var(--text-header-reversed)]">{bioData.name}</span>
     </div>
   )
 }
+
+function Portrait({ className }: { className?: string }) {
+  return (
+    <div className={['shrink-0', className].filter(Boolean).join(' ')}>
+      <div className="relative w-[72px] h-[72px] md:w-[96px] md:h-[96px] lg:w-[128px] lg:h-[128px] xl:w-[128px] xl:h-[128px] rounded-round overflow-hidden">
+        <Image
+          src={bioData.photo}
+          alt={bioData.photoAlt}
+          fill
+          className="object-cover"
+          sizes="(min-width: 1024px) 128px, (min-width: 768px) 96px, 72px"
+        />
+      </div>
+    </div>
+  )
+}
+
+function Paragraphs() {
+  return (
+    <div className="flex-1 min-w-0 max-w-[700px]">
+      {bioData.paragraphs.map((para, i) => (
+        <p
+          key={i}
+          className="font-body font-normal text-[14px] leading-[30px] text-[var(--text-body)] mb-12 last:mb-0"
+        >
+          {renderParagraph(para)}
+        </p>
+      ))}
+    </div>
+  )
+}
+
+function CertBadge({ cert }: { cert: Cert }) {
+  // Certs with a certNumber (e.g. NN/g) link to a public "people" directory
+  // rather than a direct credential URL, so the tooltip tells the user which
+  // number to enter once they arrive.
+  const verifyHint = cert.certNumber
+    ? `${cert.verifyLabel}: on the ${cert.issuer} page, enter certificate #${cert.certNumber}`
+    : cert.verifyLabel
+  return (
+    <a
+      href={cert.verifyUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={verifyHint}
+      aria-label={verifyHint}
+      className="flex flex-col gap-16 items-start"
+    >
+      <div className="relative w-[70px] h-[70px] shrink-0">
+        <Image
+          src={cert.badge}
+          alt={cert.badgeAlt}
+          fill
+          className="object-contain"
+          sizes="70px"
+        />
+      </div>
+      <p className="font-body font-normal text-[11px] leading-[16px] text-[var(--text-caption)]">
+        {cert.name}, {cert.year}
+        {cert.certNumber && (
+          <>
+            <br />
+            Certificate #{cert.certNumber}
+          </>
+        )}
+      </p>
+    </a>
+  )
+}
+
+function CredentialsLine({ className }: { className?: string }) {
+  return (
+    <p
+      className={[
+        'font-body font-normal text-[11px] leading-[16px] text-[var(--text-slash)]',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {bioData.siteCredit}
+    </p>
+  )
+}
+
+// Linkifies the "New York Times" reference inside the first bio paragraph,
+// matching the Figma design's italic, underlined link.
+function renderParagraph(text: string) {
+  const marker = 'New York Times'
+  const idx = text.indexOf(marker)
+  if (idx === -1) return text
+  return (
+    <>
+      {text.slice(0, idx)}
+      <a
+        href={NYT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="italic underline decoration-from-font hover:text-[var(--link-hover)]"
+      >
+        {marker}
+      </a>
+      {text.slice(idx + marker.length)}
+    </>
+  )
+}
+

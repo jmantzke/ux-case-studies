@@ -1,255 +1,183 @@
-import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
+import GlobalHeader from '@/components/GlobalHeader'
+import CornerDecoration from '@/components/CornerDecoration'
+import enfineitzContent from '@/content/enfineitz.json'
+
+// ─── What is Enfineitz? (Article template · Manifesto) ───────────────────────
+// Rebuilt to match the Figma "template/manifesto" responsive set:
+//   XS 922:2759 · SM 922:2681 · MD 922:2597 · LG 916:2051 · XL 916:1913
+//
+// Shares the article shell with the Biography page. Layout switches at the
+// `md` breakpoint (768px):
+//   • below md → stacked (header · horizontal nav · title · hero image + body)
+//   • md and up → two-column (hero image + body article, right nav rail)
+//
+// Difference vs. the bio template: the LG breakpoint is full-width (no
+// max-width cap); MD caps at 1023px and XL caps at 1376px.
 
 export const metadata: Metadata = {
-  title: 'What is Enfineitz? — Enfineitz',
-  description: 'The Enfineitz brand — what it means and where it came from.',
+  title: enfineitzContent.metadataTitle,
+  description: enfineitzContent.description,
+}
+
+const section = enfineitzContent.sections[0] as {
+  paragraphs: string[]
+  heading?: string
+  image: { src: string; alt: string }
 }
 
 export default function EnfineitzPage() {
   return (
-    <div
-      className={[
-        'relative flex items-start w-full min-h-screen',
-        'bg-[var(--surface-page-alt)]',
-      ].join(' ')}
-    >
-      {/* Decorative corner — top-left of entire page */}
-      <CornerDecoration position="top-left" />
+    <div className="relative w-full min-h-screen bg-[var(--surface-page-alt)]">
+      <StackedLayout />
+      <TwoColumnLayout />
+    </div>
+  )
+}
 
-      {/* ══ LEFT COLUMN — Navigation ══ */}
-      <aside
-        className={[
-          'relative flex-shrink-0',
-          'min-w-[194px] max-w-[340px] xl:w-[340px]',
-          'h-screen sticky top-0',
-          'pl-32 pt-32',
-        ].join(' ')}
-      >
-        <Navigation />
-        <CornerDecoration position="bottom-right" />
-      </aside>
+// ════════════════════════════════════════════════════════════════════════════
+// STACKED LAYOUT — xs / sm (below md)
+// ════════════════════════════════════════════════════════════════════════════
 
-      {/* ══ RIGHT COLUMN — Brand statement ══ */}
-      <main
-        className={[
-          'relative flex flex-col flex-1 min-w-0',
-          'gap-30 min-h-screen',
-          'pr-32',
-        ].join(' ')}
-      >
-        <CornerDecoration position="top-left" />
+function StackedLayout() {
+  return (
+    <div className="relative flex flex-col md:hidden gap-16 items-center min-h-screen w-full">
+      <GlobalHeader />
 
-        {/* Top body: heading anchored to bottom */}
-        <div
+      {/* Title block — horizontal navigation + page title */}
+      <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
+        <Navigation layout="horizontal" displayManifesto={false} showCopyright={false} />
+        <PageTitle className="font-display text-[24px] font-[400] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
+      </div>
+
+      {/* Below — hero image + manifesto body */}
+      <div className="relative flex flex-col flex-1 items-center p-8 sm:p-16 w-full">
+        <CornerDecoration
+          position="top-right"
+          className="absolute top-0 right-0 size-30 sm:size-32 pointer-events-none"
+        />
+
+        <ManifestoContent />
+      </div>
+
+      {/* Page bottom-left corner */}
+      <CornerDecoration
+        position="bottom-left"
+        className="absolute bottom-0 left-0 size-30 sm:size-32 pointer-events-none"
+      />
+    </div>
+  )
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+// TWO-COLUMN LAYOUT — md / lg / xl
+// ════════════════════════════════════════════════════════════════════════════
+
+function TwoColumnLayout() {
+  return (
+    <div className="relative hidden md:flex flex-col gap-24 items-center min-h-screen w-full">
+      <GlobalHeader />
+
+      {/* Title — centered; MD caps at 1023, LG is full-width, XL caps at 1376 */}
+      <div className="w-full max-w-[1023px] lg:max-w-none xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
+        <PageTitle className="font-display text-[60px] font-[300] tracking-tight" />
+      </div>
+
+      {/* Top-right corner of the body */}
+      <CornerDecoration
+        position="top-right"
+        className="absolute top-[207px] xl:top-[191px] right-0 size-40 xl:size-48 pointer-events-none z-10"
+      />
+
+      {/* Body — content column + navigation rail */}
+      <div className="flex flex-1 gap-20 lg:gap-24 items-start justify-center w-full max-w-[1023px] lg:max-w-none xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
+        <ManifestoContent className="flex-1 min-w-0" />
+
+        {/* Navigation rail */}
+        <aside
           className={[
-            'relative flex flex-col gap-8 items-start justify-end',
-            'h-[335px] w-full shrink-0',
+            'relative flex flex-col self-stretch items-start justify-between',
+            'md:min-w-[185px] md:max-w-[231px]',
+            'lg:min-w-[194px] lg:max-w-[340px]',
+            'xl:min-w-[340px] xl:max-w-[340px]',
+            'flex-1',
           ].join(' ')}
         >
-          <CornerDecoration position="bottom-right" />
+          <Navigation displayManifesto={false} />
 
-          <div className="flex items-center gap-4 shrink-0">
-            <span
-              className={[
-                'font-display font-[200]',
-                'text-[96px] leading-none tracking-tighter',
-                'whitespace-nowrap',
-                'text-[var(--text-brand-enfineitz)]',
-              ].join(' ')}
-            >
-              Enfineitz
-            </span>
-            <span
-              className={[
-                'font-display font-[200]',
-                'text-[96px] leading-none tracking-tighter',
-                'whitespace-nowrap',
-                'text-[var(--text-brand-stil)]',
-              ].join(' ')}
-            >
-              Stil
-            </span>
+          {/* Rail bottom corner */}
+          <div className="flex items-end w-full shrink-0">
+            <CornerDecoration
+              position="bottom-right"
+              className="size-40 xl:size-48 shrink-0 pointer-events-none"
+            />
           </div>
+        </aside>
+      </div>
 
-          <p
-            className={[
-              'font-body font-normal',
-              'text-body-lg leading-relaxed tracking-tight',
-              'text-[var(--text-caption)]',
-              'whitespace-nowrap shrink-0',
-            ].join(' ')}
-          >
-            What is Enfineitz?
-          </p>
-        </div>
-
-        {/* Breadcrumbs */}
-        <nav
-          aria-label="Breadcrumb"
-          className="flex items-center gap-0 shrink-0"
-        >
-          {[
-            { label: 'Home', href: '/' },
-            { label: 'What is Enfineitz?', href: '/enfineitz' },
-          ].map((item, index) => (
-            <div key={item.href} className="flex items-center h-[22px]">
-              {index > 0 && (
-                <span
-                  className={[
-                    'font-display font-normal',
-                    'text-body-lg tracking-widest uppercase',
-                    'text-[var(--text-slash)]',
-                    'w-[7px] flex items-center justify-center',
-                  ].join(' ')}
-                  aria-hidden="true"
-                >
-                  /
-                </span>
-              )}
-              <div className="flex items-center pr-8">
-                {index === 1 ? (
-                  <span
-                    className={[
-                      'font-display font-normal',
-                      'text-body-lg tracking-widest uppercase',
-                      'text-[var(--crumb-static)]',
-                      'whitespace-nowrap',
-                    ].join(' ')}
-                  >
-                    {item.label}
-                  </span>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={[
-                      'font-display font-normal',
-                      'text-body-lg tracking-widest uppercase',
-                      'text-[var(--crumb-rest)]',
-                      'whitespace-nowrap',
-                      'hover:text-[var(--link-hover)]',
-                      'transition-colors duration-150',
-                    ].join(' ')}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            </div>
-          ))}
-        </nav>
-
-        {/* Brand statement content */}
-        <article className="flex flex-col gap-48 pb-64 max-w-[800px]">
-
-          <div className="flex flex-col gap-16">
-            <h2
-              className={[
-                'font-display font-[300]',
-                'text-h1 leading-tight',
-                'text-[var(--text-brand-enfineitz)]',
-              ].join(' ')}
-            >
-              The name
-            </h2>
-            <p
-              className={[
-                'font-body font-normal',
-                'text-h4 leading-relaxed',
-                'text-[var(--text-body)]',
-              ].join(' ')}
-            >
-              <em>Enfineitz</em> is a invented word — a portmanteau of "en fin" (French: at last, finally) and
-              the German suffix <em>-eit</em>, forming a sense of finality and precision. It captures
-              the moment when complexity resolves into clarity: the feeling of getting it exactly right.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-16">
-            <h2
-              className={[
-                'font-display font-[300]',
-                'text-h1 leading-tight',
-                'text-[var(--text-brand-enfineitz)]',
-              ].join(' ')}
-            >
-              The style
-            </h2>
-            <p
-              className={[
-                'font-body font-normal',
-                'text-h4 leading-relaxed',
-                'text-[var(--text-body)]',
-              ].join(' ')}
-            >
-              <em>Stil</em> is German for style, manner, or characteristic quality. Together,{' '}
-              <em>Enfineitz Stil</em> describes a design practice defined by decisive clarity —
-              bringing order to ambiguity through precise, considered execution.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-16">
-            <h2
-              className={[
-                'font-display font-[300]',
-                'text-h1 leading-tight',
-                'text-[var(--text-brand-enfineitz)]',
-              ].join(' ')}
-            >
-              The practice
-            </h2>
-            <p
-              className={[
-                'font-body font-normal',
-                'text-h4 leading-relaxed',
-                'text-[var(--text-body)]',
-              ].join(' ')}
-            >
-              Transforming complex systems into intuitive, high‑clarity experiences—combining
-              deep user insight, rapid AI‑accelerated exploration, and decisive execution to
-              bring order to ambiguity, streamline intricate workflows, and help teams move
-              from scattered signals to confident, actionable outcomes.
-            </p>
-          </div>
-
-        </article>
-
-        <CornerDecoration position="bottom-right" />
-      </main>
+      {/* Page bottom-left corner */}
+      <CornerDecoration
+        position="bottom-left"
+        className="absolute bottom-0 left-0 size-40 xl:size-48 pointer-events-none"
+      />
     </div>
   )
 }
 
-// ─── Corner Decoration ────────────────────────────────────────────────────────
+// ════════════════════════════════════════════════════════════════════════════
+// SHARED PIECES
+// ════════════════════════════════════════════════════════════════════════════
 
-type CornerPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-
-function CornerDecoration({ position }: { position: CornerPosition }) {
-  const positionClasses: Record<CornerPosition, string> = {
-    'top-left':     'top-0 left-0',
-    'top-right':    'top-0 right-0',
-    'bottom-left':  'bottom-0 left-0',
-    'bottom-right': 'bottom-0 right-0',
-  }
-
-  const svgMap: Record<CornerPosition, string> = {
-    'top-left':     '/icons/upper-left.svg',
-    'top-right':    '/icons/upper-right.svg',
-    'bottom-left':  '/icons/lower-left.svg',
-    'bottom-right': '/icons/lower-right.svg',
-  }
-
+function PageTitle({ className }: { className?: string }) {
   return (
     <div
-      className={[
-        'absolute pointer-events-none',
-        'size-40 lg:size-40 xl:size-48',
-        positionClasses[position],
-      ].join(' ')}
-      aria-hidden="true"
+      className={['flex items-center gap-4 leading-none whitespace-nowrap', className]
+        .filter(Boolean)
+        .join(' ')}
     >
-      <img src={svgMap[position]} alt="" className="w-full h-full" />
+      <span className="text-[var(--text-slash)]">/</span>
+      <span className="text-[var(--text-header-reversed)]">{enfineitzContent.title}</span>
     </div>
   )
 }
+
+// Hero image + indented manifesto paragraph block.
+function ManifestoContent({ className }: { className?: string }) {
+  return (
+    <div
+      className={['flex flex-col gap-30 items-start w-full pb-48', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {/* Hero image */}
+      <div className="relative w-full h-[220px] sm:h-[320px] rounded-msm overflow-hidden shrink-0">
+        <Image
+          src={section.image.src}
+          alt={section.image.alt}
+          fill
+          priority
+          sizes="(max-width: 768px) 100vw, 1012px"
+          className="object-cover"
+          style={{ objectPosition: 'right bottom' }}
+        />
+      </div>
+
+      {/* Manifesto body — indented, right-aligned within the content column */}
+      <div className="flex flex-col items-end pl-64 w-full">
+        <div className="w-full max-w-[700px]">
+          {section.paragraphs.map((para, i) => (
+            <p
+              key={i}
+              className="font-body font-normal text-[14px] leading-[30px] text-[var(--text-body)] mb-12 last:mb-0"
+            >
+              {para}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+

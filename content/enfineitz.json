@@ -1,0 +1,25 @@
+{
+  "metadataTitle": "The Enfineitz Manifesto",
+  "title": "Manifesto",
+  "description": "Manifesto",
+  "hero": {
+    "wordmarkLeft": "Enfineitz",
+    "wordmarkRight": "Stil",
+    "subtitle": "Manifesto"
+  },
+  "sections": [
+    {
+      "image": {
+        "src": "/images/elk-treed-manifesto.png",
+        "alt": "An elk with antlers branching into a blossoming tree, silhouetted against a faceted sunrise."
+      },
+      "paragraphs": [
+        "Enfineitz is the belief that creativity has no boundary. Every medium, whether familiar or undiscovered, becomes a canvas for imagination. To create is to explore, to question inherited models, and to begin again with a clear mind and an open horizon.",
+        "It draws from the discipline of De Stijl, the clarity of Bauhaus, the boldness of the Russian avant‑garde, and the quiet impermanence of Andy Goldsworthy’s natural forms. Creativity is art in all its expressions, from the simplest mark to the most complex system. It is shaped by curiosity, empathy, integrity, innovation, and the pursuit of beauty.",
+        "Enfineitz holds that creation is an act of stewardship. What we make carries intention and consequence, and we honor that responsibility with humility and reverence. We create not for vanity or noise, but to bring something meaningful into the world.",
+        "To practice Enfineitz is to remain a lifelong learner, to refine one’s craft, to embrace iteration, and to trust that originality is endless. It is a mindset that invites anyone to step beyond the expected, to see possibility in every constraint, and to let creativity become a way of living.",
+        "Enfineitz reflects creation as an ongoing act, and honors the Creator as the source of all imagination."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "slug": "ecommerce-branding-kit",
+  "title": "E-commerce branding kit",
+  "content": [
+    {
+      "type": "hero",
+      "image": {
+        "src": "/images/case-studies/ecommerce-branding-kit/agt-hero-1.png",
+        "alt": "American Gold Trading brand identity hero — the Lady Liberty coin mark across logo, color, and type explorations.",
+        "aspect": "1500/360"
+      }
+    },
+    {
+      "type": "summary",
+      "subtitle": "A Brand Identity Case Study for American Gold Trading",
+      "body": "A former coworker approached me for a branding kit after being underwhelmed by AI‑generated options and uncertain about what Etsy vendors actually delivered. He wanted something affordable but strategic, something AI alone couldn’t produce. I matched the $500 Etsy price point, applied a friend discount, and expanded the scope to include competitive research, interviews, six logo concepts with revisions, six color palettes, six type pairings, and email templates. My guiding principle was that AI can execute, but humans define meaning."
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/rough-agt-concepts.png",
+          "alt": "A grid of early, rough logo sketches exploring gold and patriotic themes for American Gold Trading.",
+          "aspect": "3284/2408",
+          "caption": "My earliest logo concepts explored themes around gold and patriotism"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Discovery and research",
+      "paragraphs": [
+        "American Gold Trading operates in the collectible coin market, a space defined by trust, heritage, and investment value. Competitive analysis revealed a sea of nearly identical brands—warm metallic palettes, literal coin imagery, and templated logos. None expressed the personality or values of the businesses behind them.",
+        "I asked the client why AI hadn’t worked. The answer confirmed my hypothesis: without a strategic brief, AI produced visuals with no emotional or conceptual grounding. This clarified my role—build the strategy first, then use tools tactically."
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Strategic direction",
+      "paragraphs": [
+        "Before designing anything, I defined what the brand needed to communicate: credibility, heritage, and seriousness—without falling into predictable “gold coin” clichés. The audience consists of collectors and investors who value authenticity and do their homework. The brand needed to feel trustworthy and knowledgeable, but also distinct within a visually repetitive industry."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-logo-offerings-01-005.png",
+          "alt": "Logo offering presentation board showing a refined Lady Liberty coin mark.",
+          "aspect": "1920/1080"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-logo-offerings-01-002.png",
+          "alt": "Logo offering presentation board exploring an alternate mark treatment.",
+          "aspect": "1920/1080"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-logo-offerings-02-004.png",
+          "alt": "Logo offering presentation board showing the mark in application.",
+          "aspect": "1920/1080"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-logo-offerings-01-001.png",
+          "alt": "Logo offering presented in light and dark mode to stress-test use cases.",
+          "aspect": "1920/1080",
+          "caption": "Logos were presented in light and dark mode to stress-test use cases"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Logo system",
+      "paragraphs": [
+        "I began with broad exploration—abstract atoms, geometric bullion patterns, and unconventional shapes. Early feedback showed the client wanted imagery with meaning and heritage. That led to the Statue of Liberty.",
+        "Lady Liberty appears on real American gold coins and carries associations with permanence, freedom, and national identity. She is recognizable yet underused in commercial branding. To ensure clarity at small sizes, I focused on a cropped portrait with a circular frame referencing a coin. A reeded edge and geometric star details reinforced the connection without becoming literal. I limited the mark to two colors and required it to work in black and white first—if it didn’t communicate without color, it wasn’t strong enough."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/color-liberty.png",
+          "alt": "The Liberty color theme swatch board with recommended roles and a mood board.",
+          "aspect": "3752/3880"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/color-jupiter.png",
+          "alt": "The Jupiter color theme swatch board with recommended roles and a mood board.",
+          "aspect": "3752/3880"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/color-geyser.png",
+          "alt": "The Geyser color theme swatch board with recommended roles and a mood board.",
+          "aspect": "3752/3880",
+          "caption": "Each swatch offered recommended roles, as well as a small mood board"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/color-swatches-1.png",
+          "alt": "Foundational color swatches with hex values, RGB and CMYK specifications.",
+          "aspect": "4096/2566",
+          "caption": "Color choices were presented as foundational with hex values, RGB and CMYK"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Color system",
+      "paragraphs": [
+        "Instead of defaulting to gold tones, I explored color as an independent creative problem. Using Adobe Color and palettes extracted from my Yellowstone photography, I created six distinct themes: Liberty, Treasure, Coins, Jupiter, Geyser, and Spring.",
+        "The client chose Jupiter—a palette of warm ambers and cool steel blues. It was the least literal option but carried the right emotional weight: ancient, powerful, and authoritative. The amber reads as “gold‑adjacent” without being cliché, and the blue provides a strong dark‑mode counterpart."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/theme-jupiter-elizeth-light.png",
+          "alt": "The Jupiter theme validated for color contrast in light mode.",
+          "aspect": "1060/815",
+          "caption": "Validating color contrast with light mode"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/theme-jupiter-elizeth-dark.png",
+          "alt": "The Jupiter theme validated for color contrast in dark mode.",
+          "aspect": "1060/815",
+          "caption": "Validating color contrast with dark mode"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Building for accessibility",
+      "paragraphs": [
+        "Because the palette needed to work in both light and dark modes, I validated all text/background combinations against WCAG AA contrast requirements. I used AI to generate a contrast matrix, then converted the approved pairings into named Figma variables. The result was a documented, auditable color system that prevents accidental accessibility violations."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-typography-options-page-1.png",
+          "alt": "Typography options presented with mood boards comparing treatments in context.",
+          "aspect": "2389/1948",
+          "caption": "The client was presented with typography options with moodboards comparing treatments in context"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/agt-typography-options-page-3.png",
+          "alt": "A second page of typography options comparing display and body pairings.",
+          "aspect": "2389/1942"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Typography",
+      "paragraphs": [
+        "I constrained the body font to two highly legible, systematic options—Noto Sans and IBM Plex Sans. For display type, I auditioned two dozen candidates using the full brand name as the test phrase.",
+        "The final pairing was Elizeth + IBM Plex Sans. Elizeth brings modern authority without nostalgia; IBM Plex provides clarity and structure. Together they communicate a brand that respects tradition but operates with contemporary rigor."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/final-colors-light.png",
+          "alt": "Final deliverable mockup webpage displaying the full range of branding artifacts in light mode.",
+          "aspect": "2120/1748",
+          "caption": "The final deliverable created a mockup webpage to display the full range of branding artifacts"
+        },
+        {
+          "src": "/images/case-studies/ecommerce-branding-kit/final-colors-dark.png",
+          "alt": "Final deliverable mockup webpage displaying the full range of branding artifacts in dark mode.",
+          "aspect": "2120/1748"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Deliverable package",
+      "paragraphs": [
+        "The final kit included:",
+        "• Logo files in PNG, JPG, AI, SVG, and GIF (RGB + CMYK)",
+        "• Favicon",
+        "• Full Jupiter palette with HEX/RGB/CMYK codes",
+        "• SCSS tokens with semantic color roles",
+        "• WCAG AA accessibility documentation",
+        "• Typography guide with licensing notes",
+        "• Two UI mockups demonstrating the system in context",
+        "• A branded email template",
+        "I also built a design‑token system in Figma—color variables, type styles, spacing, and breakpoints—to ensure consistency across all deliverables."
+      ]
+    }
+  ]
+}

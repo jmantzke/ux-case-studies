@@ -1,83 +1,99 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import bioData from '@/content/bio.json'
+import CurrentYear from '@/components/CurrentYear'
 
 // ─── Navigation ────────────────────────────────────────────────────────────────
-// Left column component — sticky sidebar
-// Contains: Enfineitz glyph, brand summary, page links, social links, copyright
+// Shared navigation panel — used in the Home left rail, the Article/Case Study
+// right rail (vertical), and the Article stacked header (horizontal).
+// Contains: page links, social links, and an optional copyright line.
+// The glyph and brand summary are rendered by the page template, NOT here.
+//
+// Each spoke hides its own page link via the display* flags so the current
+// page is never linked to itself (hub-and-spoke model):
+//   • Home      → displayCaseStudies={false}
+//   • About me  → displayAbout={false}
+//   • Manifesto → displayManifesto={false}
 
-export default function Navigation() {
-  return (
-    <div
-      className={[
-        'flex flex-col h-full',
-        'gap-48',         // screen/navigation-column/gap token = 48px
-        'items-start',
-      ].join(' ')}
-    >
-      {/* ── Enfineitz glyph (SVG) ── */}
-      <Image
-        src="/icons/efz-glyph.svg"
-        alt="Enfineitz"
-        width={124}
-        height={121}
-        className="shrink-0"
+export default function Navigation({
+  displayAbout = true,
+  displayManifesto = true,
+  displayCaseStudies = true,
+  layout = 'vertical',
+  showCopyright = true,
+}: {
+  displayAbout?: boolean
+  displayManifesto?: boolean
+  displayCaseStudies?: boolean
+  layout?: 'vertical' | 'horizontal'
+  showCopyright?: boolean
+} = {}) {
+  const pageLinks = (
+    <nav className="flex flex-col gap-16 items-start" aria-label="Site navigation">
+      {displayAbout && <NavLink href="/bio">About me</NavLink>}
+      {displayManifesto && <NavLink href="/enfineitz">What is Enfineitz?</NavLink>}
+      {displayCaseStudies && <NavLink href="/">Case studies</NavLink>}
+    </nav>
+  )
+
+  const socialLinks = (
+    <>
+      <SocialLink
+        href="https://www.linkedin.com/in/enfineitz/"
+        iconClass="nav-social-icon--linkedin"
+        label="LinkedIn"
       />
+      <SocialLink
+        href="mailto:jurgen@enfineitz.com"
+        iconClass="nav-social-icon--email"
+        label="jurgen@enfineitz.com"
+      />
+      <SocialLink
+        href="https://www.behance.net/bunyip21"
+        iconClass="nav-social-icon--behance"
+        label="Behance"
+      />
+    </>
+  )
 
-      {/* ── Anchor content: brand summary + page links ── */}
-      <div className="flex flex-col gap-32 items-start w-full pr-16 shrink-0">
-
-        {/* Brand summary — ibm-plex-sans Medium, 12px, lh 22px */}
-        <p
-          className={[
-            'font-body font-medium',
-            'text-body-sm leading-[22px] tracking-normal',
-            'text-[var(--text-body)]',
-            'w-full min-w-full',
-          ].join(' ')}
-        >
-          {bioData.brandSummary}
-        </p>
-
-        {/* Page navigation links */}
-        <nav className="flex flex-col gap-16 items-start" aria-label="Site navigation">
-          <NavLink href="/bio">About me</NavLink>
-          <NavLink href="/enfineitz">What is Enfineitz?</NavLink>
-        </nav>
+  // ── Horizontal: two side-by-side columns (Article stacked header, xs/sm) ──
+  if (layout === 'horizontal') {
+    return (
+      <div className="flex flex-wrap gap-12 items-start w-full">
+        <div className="w-[200px]">{pageLinks}</div>
+        <div className="flex flex-col gap-16 items-start w-[200px] min-w-[200px]">
+          {socialLinks}
+        </div>
+        {showCopyright && <Copyright />}
       </div>
+    )
+  }
 
-      {/* ── Social / contact links ── */}
+  // ── Vertical: stacked rail (Home left rail, Article/Case Study right rail) ──
+  return (
+    <div className="flex flex-col gap-64 items-start w-full">
+      {pageLinks}
       <div className="flex flex-col gap-24 items-start w-[235px] shrink-0">
-        <SocialLink
-          href="https://www.linkedin.com/in/enfineitz/"
-          icon="/icons/linkedin.svg"
-          label="linkedin.com/in/enfineitz"
-        />
-        <SocialLink
-          href="mailto:jurgen@enfineitz.com"
-          icon="/icons/email.svg"
-          label="jurgen@enfineitz.com"
-        />
-        <SocialLink
-          href="https://www.behance.net/bunyip21"
-          icon="/icons/behance.svg"
-          label="behance.net/bunyip21"
-        />
+        {socialLinks}
       </div>
+      {showCopyright && <Copyright />}
+    </div>
+  )
+}
 
-      {/* ── Copyright ── */}
-      <div className="flex items-center py-16 w-full shrink-0">
-        <p
-          className={[
-            'font-body font-normal',
-            'text-label leading-none tracking-normal',
-            'text-[var(--text-caption)]',
-            'whitespace-nowrap',
-          ].join(' ')}
-        >
-          ©2026 Enfineitz LLC
-        </p>
-      </div>
+// ─── Copyright ────────────────────────────────────────────────────────────────
+
+function Copyright() {
+  return (
+    <div className="flex items-center py-16 w-full shrink-0">
+      <p
+        className={[
+          'font-body font-normal',
+          'text-label leading-none tracking-normal',
+          'text-[var(--text-caption)]',
+          'whitespace-nowrap',
+        ].join(' ')}
+      >
+        ©<CurrentYear from={new Date().getFullYear()} /> Enfineitz LLC
+      </p>
     </div>
   )
 }
@@ -105,47 +121,37 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 }
 
 // ─── Social Link ──────────────────────────────────────────────────────────────
-// Icon + underlined link — ibm-plex-sans Medium, 14px, tracking wide
+// Icon + link — mozilla-headline Medium, 14px, tracking wide.
+// The icon is a CSS mask painted with currentColor, so it shares the link text
+// color in every state (rest/hover). The whole row is a single link.
 
 function SocialLink({
   href,
-  icon,
+  iconClass,
   label,
 }: {
   href: string
-  icon: string
+  iconClass: string
   label: string
 }) {
   return (
-    <div className="flex gap-8 items-center shrink-0">
-      {/*
-        Export your social icons from Figma as SVG to /public/icons/
-        Icons: linkedin.svg, email.svg, behance.svg — 16×16px
-      */}
-      <Image
-        src={icon}
-        alt=""
-        width={16}
-        height={16}
-        className="shrink-0"
-        aria-hidden="true"
-      />
-      <a
-        href={href}
-        target={href.startsWith('mailto') ? undefined : '_blank'}
-        rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-        className={[
-          'font-display font-medium',
-          'text-[14px] tracking-wide',
-          'text-[var(--link-rest)]',
-          'underline decoration-solid',
-          'hover:text-[var(--link-hover)]',
-          'transition-colors duration-150',
-          'whitespace-nowrap',
-        ].join(' ')}
-      >
-        {label}
-      </a>
-    </div>
+    <a
+      href={href}
+      target={href.startsWith('mailto') ? undefined : '_blank'}
+      rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+      className={[
+        'flex gap-8 items-center shrink-0',
+        'font-display font-medium',
+        'text-[14px] tracking-wide',
+        'text-[var(--link-rest)]',
+        'hover:text-[var(--link-hover)]',
+        'transition-colors duration-150',
+        'whitespace-nowrap',
+      ].join(' ')}
+    >
+      {/* Social icons live in /public/icons/ as 16×16 SVGs; recolored via mask. */}
+      <span className={`nav-social-icon ${iconClass}`} aria-hidden="true" />
+      {label}
+    </a>
   )
 }
