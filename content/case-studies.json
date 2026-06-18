@@ -36,5 +36,18 @@
     "coverImage": "/images/case-studies/ecommerce-branding-kit/agt-card-bkg.png",
     "coverAlt": "American Gold Trading e-commerce branding kit",
     "summary": "E-commerce Branding Kit"
+  },
+  {
+    "slug": "wanderlist",
+    "title": "Wanderlist road trip planner",
+    "pageTitle": "Wanderlist",
+    "client": "Stanford Capstone Project",
+    "role": "Solo UX Designer & Researcher",
+    "year": 2026,
+    "published": true,
+    "tags": ["UX Research", "AI-Powered UX", "Prototyping"],
+    "coverImage": "/images/case-studies/wanderlist/wanderlist-card-bkg.png",
+    "coverAlt": "Wanderlist AI-powered road trip planner",
+    "summary": "Stanford program capstone project"
   }
 ]

@@ -1,0 +1,150 @@
+{
+  "slug": "wanderlist",
+  "title": "Wanderlist",
+  "content": [
+    {
+      "type": "hero",
+      "image": {
+        "src": "/images/case-studies/wanderlist/wanderlist-hero.png",
+        "alt": "Wanderlist AI-powered road trip planner",
+        "aspect": "1500/360"
+      }
+    },
+    {
+      "type": "summary",
+      "subtitle": "",
+      "body": "Wanderlist was my solo Stanford capstone project, where I owned the end‑to‑end UX process—from discovery and research through prototyping, testing, and refinement. I recruited fellow students to participate in interviews and usability testing, giving me a diverse set of perspectives on international road‑trip planning. The project focused on designing a mobile‑first travel‑planning experience that could intelligently coordinate multi‑leg road trips, including ferry crossings, using a combination of structured UI and AI‑powered assistance. My role spanned UX research, interaction design, prototyping, and product strategy, supported by tools such as Figma, FigJam, and Claude."
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/prototype-a.png",
+          "alt": "Prototype 1 — a conversational AI planning model",
+          "aspect": "3418/2172",
+          "caption": "For the final capstone project, I designed three concepts for different AI engagement models. Prototype 1 explored a more conversational planning model."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Project overview",
+      "paragraphs": [
+        "The primary persona for Wanderlist was the international road‑tripper—someone planning a multi‑day journey across borders, remote regions, and ferry routes. Through early research, five distinct traveler types emerged: the organized planner, casual wanderer, family traveler, experience collector, and spontaneous traveler. All shared a common problem: planning a complex road trip required juggling fragmented tools, spreadsheets, notes, and inconsistent ferry websites. The context was especially challenging for remote travel, where connectivity is unreliable and ferry schedules are difficult to coordinate.",
+        "The only constraint was the academic timeline, which shaped the fidelity of the final prototype but not the depth of the design exploration."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/three-final-screens.png",
+          "alt": "Final Figma mockup aligning colors, AI conversation styling, and breakpoints",
+          "aspect": "1560/1043",
+          "caption": "The final mockup in Figma, aligning colors, AI conversation styling, and breakpoints"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Exploration and discovery",
+      "paragraphs": [
+        "I began with a screening survey and asynchronous interviews with travelers who had planned international road trips involving ferry crossings. Competitive analysis, primarily with Rome2Rio, revealed gaps in how existing tools handle multi‑modal travel. I created five personas and mapped user flows to understand how different traveler types approached planning.",
+        "The interviews surfaced surprising insights: travelers with small children structured their days around meal and bedtime routines; experience collectors extended stays based on cultural or historical discoveries; and several participants sought scenic routes even on legs typically treated as “just driving.” These findings highlighted the need for a flexible, adaptive system that could accommodate diverse planning styles and unexpected user motivations."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/prototype-b.png",
+          "alt": "A sketch-based planner where the user draws a route for the AI to build from",
+          "aspect": "2304/1305",
+          "caption": "Another hypothesis I explored was for the user to draw a map with their finger on the map, and ask the AI to create the road trip from the paths."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "UX design process",
+      "paragraphs": [
+        "I created wireframes, flows, and detailed map‑interaction models to explore how Wanderlist could balance user control with AI‑powered assistance. A major design decision was to make the experience mobile‑first and conversational, while minimizing text entry by presenting structured choices. Research showed that users preferred entering cities or waypoints rather than drawing routes, so I adopted a waypoint‑first model where the system generates an optimized route that users can edit.",
+        "I explored three conceptual variants: an AI‑led blank‑map planner, a direct‑manipulation sketch‑based planner, and a structured waypoint‑entry model. The third variant became the MVP because it struck the best balance between user control and AI automation."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/markdown-example.png",
+          "alt": "Markdown files used to vibe-code a prototype in Visual Studio",
+          "aspect": "1486/1734",
+          "caption": "I created markdown files in Visual Studio to vibe-code a prototype for testing."
+        },
+        {
+          "src": "/images/case-studies/wanderlist/prototype-c.png",
+          "alt": "The MVP prototype — the most collaborative and user-friendly variant",
+          "aspect": "2304/1672",
+          "caption": "The final prototype which I determined was MVP because it was the most collaborative and more user-friendly."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Final design",
+      "paragraphs": [
+        "The final design centered on an interactive map paired with a dynamic list of trip legs that updated as the user added waypoints. Each leg displayed distance, driving time, overnight stops, and ferry crossings, giving travelers a clear sense of the journey’s structure. The interface used dark‑mode wireframes and a custom vibe‑coded design language, with mobile as the primary platform and laptop support as secondary.",
+        "Guardrails prevented impossible routes, while structured choices kept the experience focused and reduced cognitive load. The result was a mixed‑initiative system where the traveler leads the planning process and the AI handles tactical optimization."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/claude-example.png",
+          "alt": "Using Claude to help vibe-code the prototype",
+          "aspect": "1734/2018",
+          "caption": "I created markdown files in Visual Studio to vibe-code a prototype for testing."
+        },
+        {
+          "src": "/images/case-studies/wanderlist/final-prototype-screenshot.png",
+          "alt": "The final MVP prototype in use",
+          "aspect": "2858/2226",
+          "caption": "The final prototype which I determined was MVP because it was the most collaborative and more user-friendly."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Impact",
+      "paragraphs": [
+        "I tested the final design with classmates and received detailed feedback from instructors throughout the capstone. Reviewers praised the clarity of my research, the strength of my prototype comparisons, and my understanding of mixed‑initiative design. They highlighted the value of Wanderlist’s adaptive planning model, its emphasis on transparency, and its potential to reduce cognitive load by consolidating fragmented travel information. While no quantitative metrics were available, the qualitative feedback indicated that the design meaningfully improved trust, clarity, and usability for complex road‑trip planning."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/wanderlist/early-map-example.png",
+          "alt": "Early map hypotheses for generating and editing road trip legs",
+          "aspect": "2004/1002",
+          "caption": "Left: One hypothesis I explored was asking the AI to suggest three road trip plans from a single prompt. Right: another hypothesis I explored was with the user dropping pins for their road trip legs. This explored the scenario where a leg was dropped in an area inaccessible for public driving."
+        },
+        {
+          "src": "/images/case-studies/wanderlist/wanderlist-figure-7b.png",
+          "alt": "The final project vibe-coded with Figma Make",
+          "aspect": "1249/910",
+          "caption": "My final project was vibe-coded with Figma Make."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Lessons learned",
+      "paragraphs": [
+        "This project taught me to expect multiple personas to emerge, even when I begin with a single hypothesis. Discovery reshaped the problem more than anticipated, revealing diverse planning styles and needs. I learned that AI‑powered UX requires strict guardrails to prevent users from drifting off‑task, and that structured choices often outperform open‑ended text input. I also learned the value of exploring multiple prototyping approaches. Each fidelity level surfaces different insights.",
+        "If I were to do this again, I would conduct more discovery before prototyping, validate assumptions earlier, and expand interviews to capture an even broader range of traveler behaviors."
+      ]
+    }
+  ]
+}
