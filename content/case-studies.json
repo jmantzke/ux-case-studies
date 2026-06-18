@@ -12,6 +12,19 @@
     "summary": "Inflight Recurrent Training Modernization"
   },
   {
+    "slug": "alaska-airlines-pilot-vacation-trading",
+    "title": "Alaska Airlines",
+    "pageTitle": "Pilot vacation trading feature",
+    "client": "Alaska Airlines",
+    "role": "Lead UX/UI Designer",
+    "year": 2020,
+    "published": true,
+    "tags": ["UX Design", "Mobile-First", "Enterprise UX"],
+    "coverImage": "/images/case-studies/alaska-airlines-pilot-vacation-trading/alaska-pvt-card-bkg.png",
+    "coverAlt": "Alaska Airlines pilot vacation trading feature",
+    "summary": "Pilot vacation trading feature"
+  },
+  {
     "slug": "ecommerce-branding-kit",
     "title": "AGT",
     "pageTitle": "E-commerce branding kit",

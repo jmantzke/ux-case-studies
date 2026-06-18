@@ -1,4 +1,5 @@
 import alaskaAirlines from './alaska-airlines-flight-attendant-training.json'
+import alaskaPilotVacationTrading from './alaska-airlines-pilot-vacation-trading.json'
 import ecommerceBrandingKit from './ecommerce-branding-kit.json'
 
 // ─── Case study content block types ─────────────────────────────────────────
@@ -47,6 +48,8 @@ export type CaseStudyContentData = {
 const contentBySlug: Record<string, CaseStudyContentData> = {
   'alaska-airlines-flight-attendant-training':
     alaskaAirlines as CaseStudyContentData,
+  'alaska-airlines-pilot-vacation-trading':
+    alaskaPilotVacationTrading as CaseStudyContentData,
   'ecommerce-branding-kit': ecommerceBrandingKit as CaseStudyContentData,
 }
 
