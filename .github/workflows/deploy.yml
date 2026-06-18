@@ -41,9 +41,16 @@ jobs:
         run: |
           ssh-keyscan -p ${{ secrets.VPS_PORT || 22 }} -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy via rsync
+      - name: Deploy production via rsync
         run: |
           rsync -az --delete \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.VPS_PORT || 22 }}" \
             ./out/ \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/publicsubs_case_studies/case-studies.enfineitz.com/
+
+      - name: Deploy dev via rsync
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.VPS_PORT || 22 }}" \
+            ./out/ \
+            ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/publicsubs_enfineitz_dev/dev.enfineitz.com/
