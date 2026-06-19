@@ -247,9 +247,25 @@ function primBlock(scale, prefix) {
 const css = `@import "tailwindcss";
 @config '../tailwind.config.js';
 
-/* Bridge next/font variable to Tailwind's font-body utility */
+/* Bridge next/font variable to Tailwind's font utilities */
 @theme inline {
-  --font-body: var(--font-ibm-plex-sans), sans-serif;
+  --font-body: var(--font-ibm-plex-sans), "Helvetica", "Arial", sans-serif;
+}
+
+/* ─── Font stacks ──────────────────────────────────────────────────────────────
+   Headers (H1–H5): Heimat Stencil → IBM Plex Sans → Helvetica → Arial → sans-serif
+   Everything else: IBM Plex Sans → Helvetica → Arial → sans-serif                */
+@layer base {
+  body {
+    font-family: var(--font-ibm-plex-sans), "Helvetica", "Arial", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "heimat-stencil", var(--font-ibm-plex-sans), "Helvetica", "Arial", sans-serif;
+  }
 }
 
 /* ─── Primitive color tokens (auto-generated from tokens/enfineitz-tokens.json) ── */
@@ -384,8 +400,8 @@ ${Object.keys(secondary).map(k => `          ${k}: 'var(--color-secondary-${k})'
       },
 
       fontFamily: {
-        display: ['mozilla-headline', 'serif'],
-        body:    ['ibm-plex-sans', 'sans-serif'],
+        display: ['heimat-stencil', 'var(--font-ibm-plex-sans)', 'Helvetica', 'Arial', 'sans-serif'],
+        body:    ['var(--font-ibm-plex-sans)', 'Helvetica', 'Arial', 'sans-serif'],
       },
 
       fontSize: {
@@ -398,6 +414,7 @@ ${fsSeries()}
         'display-light':      '300',
         'display-regular':    '400',
         'display-medium':     '500',
+        'display-bold':       '600',
         'body-regular':       '400',
         'body-medium':        '500',
         'body-bold':          '700',

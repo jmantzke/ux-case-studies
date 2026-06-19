@@ -72,9 +72,9 @@ export default function CaseStudyCard({
             'text-[var(--link-active)]',
           ].join(' ')}
         >
-          {/* Title — mozilla-headline Regular, font-size/50 (18px), tracking-tight.
-              Rest → white (link/active); hover → orange (link/rest). */}
-          <h3 className="font-display font-normal text-[18px] leading-none tracking-tight text-[var(--link-active)] group-hover:text-[var(--link-rest)] transition-colors duration-200">
+          {/* Title — heimat-stencil Bold (600), font-size/50 (18px), tracking-tight.
+              Rest → orange (link/rest); hover → white (link/active). */}
+          <h3 className="font-display font-[600] text-[18px] leading-none tracking-tight text-[var(--link-rest)] group-hover:text-[var(--link-active)] transition-colors duration-200">
             {title}
           </h3>
 

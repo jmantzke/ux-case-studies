@@ -3657,7 +3657,7 @@
           ],
           "com.figma.hiddenFromPublishing": false
         },
-        "$value": "mozilla-headline",
+        "$value": "Heimat Stencil",
         "$type": "text"
       },
       "body": {
@@ -3668,6 +3668,36 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$value": "ibm-plex-sans",
+        "$type": "text"
+      },
+      "display-heimat": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$value": "Heimat Stencil",
+        "$type": "text"
+      },
+      "subhead-heimat": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$value": "Heimat Stencil",
+        "$type": "text"
+      },
+      "subhead": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$value": "Heimat Stencil",
         "$type": "text"
       }
     },
@@ -3740,6 +3770,16 @@
           "com.figma.hiddenFromPublishing": false
         },
         "$value": 700,
+        "$type": "number"
+      },
+      "display-bold": {
+        "$extensions": {
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.hiddenFromPublishing": false
+        },
+        "$value": 600,
         "$type": "number"
       }
     },
@@ -4185,7 +4225,7 @@
           ],
           "com.figma.hiddenFromPublishing": false
         },
-        "$value": "{spacing.primitive.xs8}",
+        "$value": "{spacing.primitive.sm12}",
         "$type": "number"
       },
       "Height": {

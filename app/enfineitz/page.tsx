@@ -18,8 +18,41 @@ import enfineitzContent from '@/content/enfineitz.json'
 // max-width cap); MD caps at 1023px and XL caps at 1376px.
 
 export const metadata: Metadata = {
-  title: enfineitzContent.metadataTitle,
-  description: enfineitzContent.description,
+  title: 'The Enfineitz Manifesto | Jurgen Mantzke',
+  description:
+    'An overview of the Enfineitz design philosophy — applying boundless creativity to complex systems.',
+  keywords: [
+    'enfineitz',
+    'manifesto',
+    'design',
+    'philosophy',
+    'product design',
+    'qualitative user research',
+    'visual design',
+    'gestalt principles',
+    'artificial intelligence',
+    'Agile',
+    'SCRUM',
+    'application',
+    'software',
+  ],
+  openGraph: {
+    title: 'The Enfineitz Manifesto | Jurgen Mantzke',
+    description:
+      'An overview of the Enfineitz design philosophy — applying boundless creativity to complex systems.',
+    url: 'https://case-studies.enfineitz.com/enfineitz',
+    images: [{ url: '/og/manifesto.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Enfineitz Manifesto | Jurgen Mantzke',
+    description:
+      'An overview of the Enfineitz design philosophy — applying boundless creativity to complex systems.',
+    images: ['/og/manifesto.png'],
+  },
+  alternates: {
+    canonical: 'https://case-studies.enfineitz.com/enfineitz',
+  },
 }
 
 const section = enfineitzContent.sections[0] as {
@@ -49,7 +82,7 @@ function StackedLayout() {
       {/* Title block — horizontal navigation + page title */}
       <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
         <Navigation layout="horizontal" displayManifesto={false} showCopyright={false} />
-        <PageTitle className="font-display text-[24px] font-[400] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
+        <PageTitle className="font-display text-[24px] font-[600] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
       </div>
 
       {/* Below — hero image + manifesto body */}
@@ -82,7 +115,7 @@ function TwoColumnLayout() {
 
       {/* Title — centered; MD caps at 1023, LG is full-width, XL caps at 1376 */}
       <div className="w-full max-w-[1023px] lg:max-w-none xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
-        <PageTitle className="font-display text-[60px] font-[300] tracking-tight" />
+        <PageTitle className="font-display text-[60px] font-[200] tracking-tight" />
       </div>
 
       {/* Top-right corner of the body */}

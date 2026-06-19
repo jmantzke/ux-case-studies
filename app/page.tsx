@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import caseStudies from '@/content/case-studies.json'
 import bioData from '@/content/bio.json'
 import CaseStudyCard from '@/components/CaseStudyCard'
@@ -20,6 +21,29 @@ const IDENTITY =
   'A curated selection of UX case studies from Jürgen Mantzke, Product Designer'
 
 const publishedStudies = caseStudies.filter((study) => study.published)
+
+export const metadata: Metadata = {
+  title: 'UX Case Studies | Jurgen Mantzke',
+  description:
+    'UX case studies by Jurgen Mantzke, focused on transforming complex domains into clear, direction‑setting product foundations.',
+  openGraph: {
+    title: 'UX Case Studies | Jurgen Mantzke',
+    description:
+      'UX case studies by Jurgen Mantzke, focused on transforming complex domains into clear, direction‑setting product foundations.',
+    url: 'https://case-studies.enfineitz.com',
+    images: [{ url: '/og/placeholder.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UX Case Studies | Jurgen Mantzke',
+    description:
+      'UX case studies by Jurgen Mantzke, focused on transforming complex domains into clear, direction‑setting product foundations.',
+    images: ['/og/placeholder.png'],
+  },
+  alternates: {
+    canonical: 'https://case-studies.enfineitz.com',
+  },
+}
 
 export default function HomePage() {
   return (
@@ -61,7 +85,7 @@ function StackedLayout() {
               className={[
                 'gap-2 sm:gap-4',
                 'text-[18px] sm:text-[48px] leading-none tracking-tighter',
-                'font-[400] sm:font-[200]',
+                'font-[600] sm:font-[200]',
               ].join(' ')}
             />
             <p
@@ -199,7 +223,7 @@ function TwoColumnLayout() {
 
           {/* Top body: brand name + identity */}
           <div className="flex flex-col gap-4 items-start justify-end h-[302px] lg:h-[335px] w-full shrink-0">
-            <Wordmark className="gap-4 leading-none text-[60px] lg:text-[96px] font-[300] lg:font-[200] tracking-tight lg:tracking-tighter" />
+            <Wordmark className="gap-4 leading-none text-[60px] lg:text-[96px] font-[200] tracking-tight lg:tracking-tighter" />
             <p
               className={[
                 'font-body font-normal',
@@ -289,7 +313,7 @@ function PageLink({
     <Link
       href={href}
       className={[
-        'font-display font-medium',
+        'font-display font-[600]',
         'text-body tracking-wide',
         'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
         'py-4 transition-colors duration-150 whitespace-nowrap',
@@ -326,7 +350,7 @@ function ContactLink({
         target={isMail ? undefined : '_blank'}
         rel={isMail ? undefined : 'noopener noreferrer'}
         className={[
-          'font-display font-medium',
+          'font-display font-[600]',
           'text-[14px] tracking-wide',
           'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
           'transition-colors duration-150',

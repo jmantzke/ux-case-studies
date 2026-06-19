@@ -106,7 +106,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
     <Link
       href={href}
       className={[
-        'font-display font-medium',
+        'font-display font-[600]',
         'text-body tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',
@@ -141,7 +141,7 @@ function SocialLink({
       rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
       className={[
         'flex gap-8 items-center shrink-0',
-        'font-display font-medium',
+        'font-display font-[600]',
         'text-[14px] tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',

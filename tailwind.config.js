@@ -91,8 +91,8 @@ module.exports = {
       },
 
       fontFamily: {
-        display: ['mozilla-headline', 'serif'],
-        body:    ['ibm-plex-sans', 'sans-serif'],
+        display: ['heimat-stencil', 'var(--font-ibm-plex-sans)', 'Helvetica', 'Arial', 'sans-serif'],
+        body:    ['var(--font-ibm-plex-sans)', 'Helvetica', 'Arial', 'sans-serif'],
       },
 
       fontSize: {
@@ -116,6 +116,7 @@ module.exports = {
         'display-light':      '300',
         'display-regular':    '400',
         'display-medium':     '500',
+        'display-bold':       '600',
         'body-regular':       '400',
         'body-medium':        '500',
         'body-bold':          '700',

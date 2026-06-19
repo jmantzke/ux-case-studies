@@ -72,7 +72,7 @@ export default function GlobalHeader() {
             className="absolute left-0 top-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
           />
         </span>
-        <span className="font-display font-normal text-[18px] uppercase tracking-[2px] text-[var(--crumb-rest)] transition-colors duration-150 group-hover:text-[var(--crumb-hover)] whitespace-nowrap">
+        <span className="font-display font-[600] text-[18px] uppercase tracking-[2px] text-[var(--crumb-rest)] transition-colors duration-150 group-hover:text-[var(--crumb-hover)] whitespace-nowrap">
           Enfineitz
         </span>
       </Link>

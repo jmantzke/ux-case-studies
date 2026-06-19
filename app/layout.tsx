@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og/placeholder.png',
         width: 1200,
         height: 630,
         alt: 'Enfineitz — Jürgen Mantzke, UX and product designer',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Enfineitz — Jürgen Mantzke',
     description:
       'The personal website of Jürgen Mantzke, UX and product designer',
-    images: ['/og-image.png'],
+    images: ['/og/placeholder.png'],
   },
 }
 
@@ -50,7 +50,7 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} dark h-full antialiased`}
     >
       <head>
-        {/* mozilla-headline — Adobe Fonts kit nqe6jwf */}
+        {/* heimat-stencil — Adobe Fonts kit nqe6jwf */}
         <link rel="stylesheet" href="https://use.typekit.net/nqe6jwf.css" />
       </head>
       <body className="min-h-full">{children}</body>

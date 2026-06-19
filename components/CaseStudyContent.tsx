@@ -44,7 +44,7 @@ export default function CaseStudyContent({
                 className="flex flex-col gap-16 items-start w-full text-[var(--text-body)]"
               >
                 {block.subtitle && (
-                  <p className="font-display font-normal text-[18px] leading-normal tracking-tight w-full">
+                  <p className="font-display font-[200] text-[18px] leading-normal tracking-tight w-full">
                     {block.subtitle}
                   </p>
                 )}
@@ -89,7 +89,7 @@ export default function CaseStudyContent({
                 key={i}
                 className="flex flex-col gap-16 items-start w-full text-[var(--text-body)]"
               >
-                <h2 className="font-display font-normal text-[24px] leading-normal tracking-[1px] w-full">
+                <h2 className="font-display font-[600] text-[24px] leading-normal tracking-[1px] w-full">
                   {block.heading}
                 </h2>
                 <div className="max-w-[700px] w-full">

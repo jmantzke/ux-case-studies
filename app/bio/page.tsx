@@ -16,8 +16,45 @@ import bioData from '@/content/bio.json'
 //                 right navigation rail)
 
 export const metadata: Metadata = {
-  title: 'About me — Enfineitz',
-  description: bioData.identity,
+  title: 'About | Jurgen Mantzke',
+  description:
+    'Background and experience of Jurgen Mantzke, a systems‑level UX/Product Designer specializing in complex domains.',
+  keywords: [
+    'enterprise',
+    'design',
+    'user experience',
+    'product design',
+    'qualitative user research',
+    'visual design',
+    'gestalt principles',
+    'design system',
+    'Figma',
+    'nonprofit',
+    'aviation',
+    'prototype',
+    'artificial intelligence',
+    'Agile',
+    'SCRUM',
+    'application',
+    'software',
+  ],
+  openGraph: {
+    title: 'About | Jurgen Mantzke',
+    description:
+      'Background and experience of Jurgen Mantzke, a systems‑level UX/Product Designer specializing in complex domains.',
+    url: 'https://case-studies.enfineitz.com/bio',
+    images: [{ url: '/og/enfineitz.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About | Jurgen Mantzke',
+    description:
+      'Background and experience of Jurgen Mantzke, a systems‑level UX/Product Designer specializing in complex domains.',
+    images: ['/og/enfineitz.png'],
+  },
+  alternates: {
+    canonical: 'https://case-studies.enfineitz.com/bio',
+  },
 }
 
 const NYT_URL = 'http://www.nytimes.com/2008/06/14/business/14offline.html'
@@ -56,7 +93,7 @@ function StackedLayout() {
       {/* Title block — horizontal navigation + page title */}
       <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
         <Navigation layout="horizontal" displayAbout={false} showCopyright={false} />
-        <PageTitle className="font-display text-[24px] font-[400] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
+        <PageTitle className="font-display text-[24px] font-[600] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
       </div>
 
       {/* Below — portrait + bio, certificates, site credit */}
@@ -109,7 +146,7 @@ function TwoColumnLayout() {
 
       {/* Title — centered, capped per breakpoint */}
       <div className="w-full max-w-[1023px] lg:max-w-[1375px] xl:max-w-[1376px] px-16 lg:px-32 xl:px-0">
-        <PageTitle className="font-display text-[60px] font-[300] tracking-tight" />
+        <PageTitle className="font-display text-[60px] font-[200] tracking-tight" />
       </div>
 
       {/* Top-right corner of the body */}
@@ -236,9 +273,9 @@ function CertBadge({ cert }: { cert: Cert }) {
         <Image
           src={cert.badge}
           alt={cert.badgeAlt}
-          fill
-          className="object-contain"
-          sizes="70px"
+          width={800}
+          height={800}
+          className="w-full h-full object-contain"
         />
       </div>
       <p className="font-body font-normal text-[11px] leading-[16px] text-[var(--text-caption)]">
