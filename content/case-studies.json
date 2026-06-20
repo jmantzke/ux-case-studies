@@ -49,5 +49,19 @@
     "coverImage": "/images/case-studies/wanderlist/wanderlist-card-bkg.png",
     "coverAlt": "Wanderlist AI-powered road trip planner",
     "summary": "Stanford program capstone project"
+  },
+  {
+    "slug": "boeing-ngps-search",
+    "title": "Boeing NGPS",
+    "pageTitle": "Boeing NGPS Search",
+    "client": "Boeing",
+    "role": "UX Designer",
+    "year": 2023,
+    "published": true,
+    "tags": ["UX Design", "Enterprise UX", "Design Systems", "Boeing", "Military", "Aviation", "Maintenance", "Search", "Enterprise UX"],
+    "coverImage": "/images/case-studies/boeing-ngps-search/boeing-ngps-card-bkg.png",
+    "coverAlt": "Boeing NGPS Search maintenance record search",
+    "summary": "Maintenance record search",
+    "ogImage": "/og/boeing-ngps-1.png"
   }
 ]

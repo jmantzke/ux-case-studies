@@ -29,6 +29,7 @@ type CaseStudyIndexEntry = {
   coverImage: string
   coverAlt: string
   summary: string
+  ogImage?: string
 }
 
 // ─── Static params ─────────────────────────────────────────────────────────────
@@ -40,30 +41,45 @@ export async function generateStaticParams() {
 }
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
-// Generic, static metadata applied to every case study for now. Per-study
-// titles, descriptions, and canonical URLs will be added later.
+// Per-study metadata: each case study gets its own title, canonical URL, and
+// (when assigned) Open Graph image. Studies without an `ogImage` fall back to
+// the shared placeholder. Descriptions remain generic for now.
 
-export const metadata: Metadata = {
-  title: 'Case Study | Jurgen Mantzke',
-  description:
-    'A UX case study by Jurgen Mantzke. This page will be updated with a full description later.',
-  openGraph: {
-    title: 'Case Study | Jurgen Mantzke',
-    description:
-      'A UX case study by Jurgen Mantzke. This page will be updated with a full description later.',
-    url: 'https://case-studies.enfineitz.com/case-study',
-    images: [{ url: '/og/placeholder.png', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Case Study | Jurgen Mantzke',
-    description:
-      'A UX case study by Jurgen Mantzke. This page will be updated with a full description later.',
-    images: ['/og/placeholder.png'],
-  },
-  alternates: {
-    canonical: 'https://case-studies.enfineitz.com/case-study',
-  },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const study = (caseStudies as CaseStudyIndexEntry[]).find(
+    (s) => s.slug === slug,
+  )
+
+  const title = `${study?.pageTitle ?? study?.title ?? 'Case Study'} | Jurgen Mantzke`
+  const description =
+    'A UX case study by Jurgen Mantzke. This page will be updated with a full description later.'
+  const url = `https://case-studies.enfineitz.com/case-study/${slug}`
+  const ogImage = study?.ogImage ?? '/og/placeholder.png'
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: url,
+    },
+  }
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
