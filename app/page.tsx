@@ -80,7 +80,7 @@ function StackedLayout() {
         {/* Brand: glyph + wordmark + slogan */}
         <div className="flex gap-4 sm:gap-16 items-start">
           <Glyph className="w-[23px] h-[22px] sm:w-[60px] sm:h-[58px] shrink-0" />
-          <div className="flex flex-col gap-4 items-start whitespace-nowrap">
+          <div className="flex flex-col gap-4 items-start">
             <Wordmark
               className={[
                 'gap-2 sm:gap-4',
