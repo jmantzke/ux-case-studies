@@ -166,10 +166,6 @@ function TwoColumnLayout() {
         className="absolute top-0 left-0 size-40 xl:size-48 pointer-events-none z-10"
       />
       <CornerDecoration
-        position="top-right"
-        className="absolute top-[271px] lg:top-[295px] right-0 size-40 xl:size-48 pointer-events-none z-10"
-      />
-      <CornerDecoration
         position="bottom-right"
         className="absolute bottom-0 right-0 size-40 xl:size-48 pointer-events-none z-10"
       />
@@ -210,7 +206,7 @@ function TwoColumnLayout() {
 
           <CornerDecoration
             position="bottom-right"
-            className="absolute bottom-0 right-0 size-40 xl:size-48 xl:-right-8 pointer-events-none"
+            className="absolute bottom-0 right-0 size-40 xl:size-48 pointer-events-none"
           />
         </aside>
 
@@ -223,12 +219,21 @@ function TwoColumnLayout() {
 
           {/* Top body: brand name + identity */}
           <div className="flex flex-col gap-4 items-start justify-end h-[302px] lg:h-[335px] w-full shrink-0">
-            <Wordmark className="gap-4 leading-none text-[60px] lg:text-[96px] font-[200] tracking-tight lg:tracking-tighter" />
+            {/* Wordmark anchors the top-right corner: corner top === wordmark bottom
+                (0px flex-like gap), while staying flush to the viewport's right edge. */}
+            <div className="relative w-full">
+              <Wordmark className="gap-4 leading-none text-[60px] lg:text-[96px] font-[200] tracking-tight lg:tracking-tighter" />
+              <CornerDecoration
+                position="top-right"
+                className="absolute top-full -right-16 lg:-right-32 xl:right-[calc(624px-50vw)] size-40 xl:size-48 pointer-events-none z-10"
+              />
+            </div>
             <p
               className={[
                 'font-body font-normal',
                 'text-[18px] leading-[30px] tracking-tight',
-                'text-[var(--text-caption)] whitespace-nowrap',
+                'text-[var(--text-caption)]',
+                'max-w-[calc(100%-var(--identity-corner-clearance))]',
               ].join(' ')}
             >
               {IDENTITY}
