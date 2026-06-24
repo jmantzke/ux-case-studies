@@ -18,8 +18,7 @@
   h3,
   h4,
   h5 {
-    font-family: "heimat-stencil", var(--font-ibm-plex-sans), "Helvetica",
-      "Arial", sans-serif;
+    font-family: "heimat-stencil", var(--font-ibm-plex-sans), "Helvetica", "Arial", sans-serif;
   }
 }
 

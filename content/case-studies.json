@@ -63,5 +63,19 @@
     "coverAlt": "Boeing NGPS Search maintenance record search",
     "summary": "Maintenance record search",
     "ogImage": "/og/boeing-ngps-1.png"
+  },
+  {
+    "slug": "ngps-aircraft-detail-redesign",
+    "title": "NGPS Aircraft detail",
+    "pageTitle": "NGPS Aircraft Detail Redesign",
+    "client": "Boeing",
+    "role": "UX Designer",
+    "year": 2023,
+    "published": true,
+    "tags": ["UX Design", "Enterprise UX", "Data Visualization"],
+    "coverImage": "/images/abstract-tile-bkg-7.png",
+    "coverAlt": "NGPS Aircraft detail maintenance data display",
+    "summary": "Maintenance data display",
+    "ogImage": "/og/boeing-ngps-2.png"
   }
 ]

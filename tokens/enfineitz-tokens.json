@@ -1,4 +1,34 @@
 {
+  "global": {
+    "fontWeights": {
+      "heimat-stencil-0": {
+        "$value": "ExtraLight",
+        "$type": "fontWeights"
+      },
+      "heimat-stencil-1": {
+        "$value": "Bold",
+        "$type": "fontWeights"
+      },
+      "ibm-plex-sans-2": {
+        "$value": "Regular",
+        "$type": "fontWeights"
+      },
+      "ibm-plex-sans-3": {
+        "$value": "Italic",
+        "$type": "fontWeights"
+      }
+    },
+    "fontSize": {
+      "9": {
+        "$value": 96,
+        "$type": "fontSizes"
+      },
+      "10": {
+        "$value": 340,
+        "$type": "fontSizes"
+      }
+    }
+  },
   "global/global": {
     "colors": {
       "primary": {

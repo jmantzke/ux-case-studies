@@ -3,6 +3,7 @@ import alaskaPilotVacationTrading from './alaska-airlines-pilot-vacation-trading
 import ecommerceBrandingKit from './ecommerce-branding-kit.json'
 import wanderlist from './wanderlist.json'
 import boeingNgpsSearch from './boeing-ngps-search.json'
+import ngpsAircraftDetailRedesign from './ngps-aircraft-detail-redesign.json'
 
 // ─── Case study content block types ─────────────────────────────────────────
 // Each case study's body is authored as a JSON file of content blocks. The
@@ -32,10 +33,14 @@ export type GalleryBlock = {
   figures: GalleryFigure[]
 }
 
+// A section paragraph is either body copy (string) or an inline subheading
+// (object), which renders at a larger size within the section.
+export type SectionParagraph = string | { subheading: string }
+
 export type SectionBlock = {
   type: 'section'
   heading: string
-  paragraphs: string[]
+  paragraphs: SectionParagraph[]
 }
 
 export type CaseStudyBlock = HeroBlock | SummaryBlock | GalleryBlock | SectionBlock
@@ -55,6 +60,8 @@ const contentBySlug: Record<string, CaseStudyContentData> = {
   'ecommerce-branding-kit': ecommerceBrandingKit as CaseStudyContentData,
   wanderlist: wanderlist as CaseStudyContentData,
   'boeing-ngps-search': boeingNgpsSearch as CaseStudyContentData,
+  'ngps-aircraft-detail-redesign':
+    ngpsAircraftDetailRedesign as CaseStudyContentData,
 }
 
 export function getCaseStudyContent(

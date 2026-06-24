@@ -93,14 +93,23 @@ export default function CaseStudyContent({
                   {block.heading}
                 </h2>
                 <div className="max-w-[700px] w-full">
-                  {block.paragraphs.map((para, pi) => (
-                    <p
-                      key={pi}
-                      className="font-body font-normal text-[14px] leading-[30px] mb-12 last:mb-0"
-                    >
-                      {para}
-                    </p>
-                  ))}
+                  {block.paragraphs.map((para, pi) =>
+                    typeof para === 'string' ? (
+                      <p
+                        key={pi}
+                        className="font-body font-normal text-[14px] leading-[30px] mb-12 last:mb-0"
+                      >
+                        {para}
+                      </p>
+                    ) : (
+                      <p
+                        key={pi}
+                        className="font-body font-normal text-[20px] leading-[36px] tracking-tight mb-12 last:mb-0"
+                      >
+                        {para.subheading}
+                      </p>
+                    ),
+                  )}
                 </div>
               </div>
             )
