@@ -1230,7 +1230,7 @@
             ],
             "com.figma.hiddenFromPublishing": false
           },
-          "$value": "{spacing.primitive.lg24}",
+          "$value": "{spacing.primitive.lg32}",
           "$type": "number"
         },
         "h2": {
@@ -1582,7 +1582,7 @@
             ],
             "com.figma.hiddenFromPublishing": false
           },
-          "$value": 24,
+          "$value": 32,
           "$type": "number"
         },
         "fontWeight": {

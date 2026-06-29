@@ -104,7 +104,7 @@ module.exports = {
         'body-lg': ['16px', { lineHeight: '19.2px', letterSpacing: '0' }],
         'h5': ['11px', { lineHeight: '13.2px', letterSpacing: '0.02em' }],
         'h4': ['18px', { lineHeight: '21.6px', letterSpacing: '0' }],
-        'h3': ['24px', { lineHeight: '28.8px', letterSpacing: '0.01em' }],
+        'h3': ['32px', { lineHeight: '28.8px', letterSpacing: '0.01em' }],
         'h2': ['48px', { lineHeight: '57.6px', letterSpacing: '0' }],
         'h1': ['56px', { lineHeight: '67.2px', letterSpacing: '0' }],
         'hero2': ['128px', { lineHeight: '153.6px', letterSpacing: '-0.01em' }],

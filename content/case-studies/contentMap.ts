@@ -4,6 +4,7 @@ import ecommerceBrandingKit from './ecommerce-branding-kit.json'
 import wanderlist from './wanderlist.json'
 import boeingNgpsSearch from './boeing-ngps-search.json'
 import ngpsAircraftDetailRedesign from './ngps-aircraft-detail-redesign.json'
+import alaskaPersonalDropRequest from './alaska-airlines-personal-drop-request.json'
 
 // ─── Case study content block types ─────────────────────────────────────────
 // Each case study's body is authored as a JSON file of content blocks. The
@@ -62,6 +63,8 @@ const contentBySlug: Record<string, CaseStudyContentData> = {
   'boeing-ngps-search': boeingNgpsSearch as CaseStudyContentData,
   'ngps-aircraft-detail-redesign':
     ngpsAircraftDetailRedesign as CaseStudyContentData,
+  'alaska-airlines-personal-drop-request':
+    alaskaPersonalDropRequest as CaseStudyContentData,
 }
 
 export function getCaseStudyContent(

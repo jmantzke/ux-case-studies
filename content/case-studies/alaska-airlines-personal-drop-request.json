@@ -1,0 +1,188 @@
+{
+  "slug": "alaska-airlines-personal-drop-request",
+  "title": "Personal Drop Request",
+  "content": [
+    {
+      "type": "hero",
+      "image": {
+        "src": "/images/case-studies/alaska-airlines-personal-drop-request/alaska-pdr-hero.png",
+        "alt": "Alaska Airlines Personal Drop Request feature shown across mobile and desktop scheduling interfaces",
+        "aspect": "1500/360"
+      }
+    },
+    {
+      "type": "summary",
+      "subtitle": "Turning a fragmented workflow into a fast, reliable experience",
+      "body": "A Personal Drop is a union policy which allows flight attendants to request time off without pay by dropping a scheduled trip."
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/pdr-wireframes-03.png",
+          "alt": "Early wireframes exploring components and interaction patterns for the Personal Drop Request flow",
+          "aspect": "3814/2465",
+          "caption": "Early concepts for components and interaction patterns"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/pdr-scheduler-research-overview.jpg",
+          "alt": "Workshop research artifact mapping the scheduler Personal Drop Request workflow",
+          "aspect": "2667/1500",
+          "caption": "Workshop artifact from meetings with schedulers"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Project overview",
+      "paragraphs": [
+        "Alaska Airlines needed a safer, more reliable way for flight attendants to submit Personal Drop Requests. The legacy workflow depended on phone calls, emails, text messages and in‑person conversations, which created inconsistent records and exposed the company to union grievances, FAA compliance issues and costly scheduling mistakes. Leadership framed the problem as “make PDR easier,” but early discovery showed the real issue was a fragmented workflow built on a SharePoint system that had been stretched far beyond its intended use.",
+        "Because the project was urgent, I used a Lean UX approach focused on rapid interviews and workshops with schedulers and flight attendants. These sessions revealed that the workflow was not just inefficient. It was structurally risky. My role as Lead UX Designer was to redesign the process so both groups could complete the task quickly, confidently and without navigating multiple systems."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-sc02-01-a.png",
+          "alt": "Mobile prototype screen for the flight attendant Personal Drop Request flow",
+          "aspect": "375/780",
+          "caption": "These are prototypes for usability testing"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-sc02-02-a.png",
+          "alt": "Mobile prototype screen showing trip selection in the Personal Drop Request flow",
+          "aspect": "375/780"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-sc01-03-a.png",
+          "alt": "Mobile prototype screen showing the flight attendant request entry point",
+          "aspect": "375/780"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-sc04-01-b.png",
+          "alt": "Mobile prototype screen with clickable date and trip selector controls",
+          "aspect": "375/780",
+          "caption": "The date and trip selectors were designed as clickable or tap-able controls, which demonstrated a better way for the user to communicate their choice."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Exploration and discovery",
+      "paragraphs": [
+        "Discovery exposed the emotional and operational complexity behind PDRs. Flight attendants often made scheduling decisions around family obligations, especially parents coordinating childcare. Their mental model for a drop request was shaped by personal logistics, not by the structure of the legacy form. They also described uncertainty about whether a request had been approved, sometimes traveling to their base unaware that their schedule had already changed.",
+        "Schedulers faced a different challenge. They had to synthesize information from several systems, each with different levels of reliability. They relied on tribal knowledge to determine which data source to trust, and they frequently entered the same information multiple times. Communication gaps meant approvals were not always relayed back to flight attendants in time.",
+        "Both groups used undocumented workarounds to compensate for missing features and unreliable data. These shadow workflows revealed where the system was failing and where the redesign could add value beyond the original product hypothesis."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-sc02-02.png",
+          "alt": "Tall mobile screen exploring how a Personal Drop Request trip is represented",
+          "aspect": "750/1560"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/fa-pdr-scx-02-b.png",
+          "alt": "Mobile concept showing different trip types including a sequence interruption point",
+          "aspect": "750/1560",
+          "caption": "Some earlier ideas to represent different trip types. When a trip was separated by a gap, it was called a “sequence interruption point”, and it meant that the flight attendant would return to their base while still serving the trip."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "UX design process",
+      "paragraphs": [
+        "The design centered on two scheduling models: reserve blocks and line‑holder trips. Each required a different way of representing time and selecting segments. The existing date picker could not support either model without forcing users to enter data the system already knew. I designed a custom selector that visually represented trips and segments, informed directly by user interviews.",
+        "I created new UI patterns that worked across mobile and desktop. Flight attendants needed a fast, gesture‑friendly mobile experience, while schedulers needed dense, reliable data on a desktop. Components were designed to scale across breakpoints without losing clarity.",
+        "Validation happened through iterative reviews with the product team, UX peers and engineering. We collaborated closely to remove redundant steps and automatically retrieve data from multiple systems so schedulers no longer needed to authenticate into separate applications.",
+        "A major tradeoff involved a feature that allowed flight attendants to view all PDRs across all bases. I initially believed this visibility might offer value, but usability testing showed low impact and high complexity, so we removed it to keep the workflow focused and intuitive."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/pdr-cards.png",
+          "alt": "Annotated developer specifications for the Personal Drop Request card components",
+          "aspect": "2382/3368",
+          "caption": "Developer instructions"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/inflight-pdr-bases-colors.png",
+          "alt": "Color system designating a distinct color for each Alaska Airlines scheduling base",
+          "aspect": "2796/1926",
+          "caption": "The schedulers had their own colors designated for each base for Alaska Airlines."
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Final design",
+      "paragraphs": [
+        "The final design eliminated most manual data entry and consolidated the entire workflow into a single, intuitive experience.",
+        "For flight attendants, the interface automatically surfaced all relevant information based on authentication and company ID. They could tap, swipe and scroll through a visual representation of their upcoming trips instead of typing dates or navigating multiple screens. The workflow fit cleanly on a smartphone and allowed them to revoke a request with one tap.",
+        "For schedulers, the design unified critical data from multiple systems into one screen. The legacy workflow required opening several applications and scrolling through tables with more than a dozen columns. The new design replaced those tables with responsive cards that displayed all relevant data points at any breakpoint. Several scheduler workarounds were formalized as features, reducing cognitive load and improving reliability.",
+        "The scheduler interface became the clearest expression of the redesign. It showed how fragmented data could be unified and how complex decisions could be simplified into a predictable, trustworthy workflow."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/sched-pdr-sc05-01-a.png",
+          "alt": "Scheduler interface concept displaying Personal Drop Request data",
+          "aspect": "1200/1024"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/sched-pdr-sc07-02-a.png",
+          "alt": "Scheduler desktop interface unifying Personal Drop Request data into responsive cards",
+          "aspect": "2000/1707",
+          "caption": "The scheduler interface was configured for a desktop breakpoint"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Impact",
+      "paragraphs": [
+        "Even without formal post‑launch metrics, the directional improvements were significant.",
+        "• Flight attendant PDR time dropped from roughly thirty minutes to under two minutes.",
+        "• Scheduler approval time dropped from about fifteen minutes to roughly five.",
+        "• Redundant data entry was eliminated.",
+        "• Multi‑app cross‑referencing was replaced with automatic data retrieval.",
+        "• Operational risk decreased because the workflow no longer relied on inconsistent communication channels.",
+        "The new patterns contributed to a broader modernization effort within the scheduler and flight ops design system, creating reusable structures for future applications."
+      ]
+    },
+    {
+      "type": "gallery",
+      "figures": [
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/sched-pdr-sc08-02-a.png",
+          "alt": "Scheduler interface showing Personal Drop Request records in a card-based layout",
+          "aspect": "1667/1423"
+        },
+        {
+          "src": "/images/case-studies/alaska-airlines-personal-drop-request/sched-pdr-sc07-02-b.png",
+          "alt": "Scheduler card interface replacing legacy SharePoint data tables",
+          "aspect": "2000/1707",
+          "caption": "These interfaces introduced a card to display data, upgraded from Sharepoint tables"
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "heading": "Lessons learned",
+      "paragraphs": [
+        "Union‑regulated workflows require union voices in discovery. Their policies shape how flight attendants make decisions, and including union leaders earlier would have surfaced constraints sooner.",
+        "Designing for two user groups with conflicting needs works best when discovery and testing are separated. Flight attendants needed a fast mobile experience, while schedulers needed dense desktop clarity. Treating them as distinct tracks helped the final product act as a mediator between their mental models.",
+        "Working with SharePoint reinforced how legacy systems can quietly create operational risk. As workflows scale, older tools often become bottlenecks that encourage hacks and redundant steps.",
+        "If I were to redo the project today, I would expand the research pool, explore more solution concepts and use an impact‑effort matrix to prioritize features more strategically. Earlier alignment with engineering and union stakeholders would also create more space for innovation."
+      ]
+    }
+  ]
+}
