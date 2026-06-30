@@ -58,8 +58,8 @@ export default function Navigation({
   if (layout === 'horizontal') {
     return (
       <div className="flex flex-wrap gap-12 items-start w-full">
-        <div className="w-[200px]">{pageLinks}</div>
-        <div className="flex flex-col gap-16 items-start w-[200px] min-w-[200px]">
+        <div className="flex-1 min-w-[8.75rem]">{pageLinks}</div>
+        <div className="flex flex-col gap-16 items-start flex-1 min-w-[8.75rem]">
           {socialLinks}
         </div>
         {showCopyright && <Copyright />}
@@ -110,7 +110,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
         'text-body tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',
-        'py-4',                       // margin/2xs = 4px vertical padding
+        'py-2',                       // margin/3xs = 2px vertical padding
         'transition-colors duration-150',
         'whitespace-nowrap',
       ].join(' ')}
@@ -145,6 +145,7 @@ function SocialLink({
         'text-[14px] tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',
+        'py-2',
         'transition-colors duration-150',
         'whitespace-nowrap',
       ].join(' ')}

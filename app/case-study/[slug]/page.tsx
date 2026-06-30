@@ -126,7 +126,7 @@ function StackedLayout({
       <GlobalHeader />
 
       {/* Title block — horizontal navigation + page title */}
-      <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
+      <div className="flex flex-col gap-24 items-start px-8 sm:px-16 w-full">
         <Navigation layout="horizontal" showCopyright={false} />
         <PageTitle
           title={title}

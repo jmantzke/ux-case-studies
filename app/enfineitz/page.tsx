@@ -80,7 +80,7 @@ function StackedLayout() {
       <GlobalHeader />
 
       {/* Title block — horizontal navigation + page title */}
-      <div className="flex flex-col gap-24 items-center px-8 sm:px-16 w-full">
+      <div className="flex flex-col gap-24 items-start px-8 sm:px-16 w-full">
         <Navigation layout="horizontal" displayManifesto={false} showCopyright={false} />
         <PageTitle className="font-display text-[24px] font-[600] sm:text-[48px] sm:font-[200] tracking-[0.01em] sm:tracking-tight" />
       </div>

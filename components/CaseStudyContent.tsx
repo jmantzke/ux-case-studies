@@ -44,7 +44,7 @@ export default function CaseStudyContent({
                 className="flex flex-col gap-16 items-start w-full text-[var(--text-body)]"
               >
                 {block.subtitle && (
-                  <p className="font-display font-[200] text-[18px] leading-normal tracking-tight w-full">
+                  <p className="font-body font-normal text-[20px] leading-[36px] tracking-tight w-full">
                     {block.subtitle}
                   </p>
                 )}
