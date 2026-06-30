@@ -49,7 +49,7 @@ export default function Navigation({
       <SocialLink
         href="https://www.behance.net/bunyip21"
         iconClass="nav-social-icon--behance"
-        label="Behance"
+        label="Bēhance"
       />
     </>
   )

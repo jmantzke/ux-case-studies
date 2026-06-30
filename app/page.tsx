@@ -79,20 +79,21 @@ function StackedLayout() {
       <header className="flex flex-col gap-24 w-full px-8 py-24 sm:p-16">
         {/* Brand: glyph + wordmark + slogan */}
         <div className="flex gap-4 sm:gap-16 items-start">
-          <Glyph className="w-[23px] h-[22px] sm:w-[60px] sm:h-[58px] shrink-0" />
+          <Glyph className="w-[32px] h-[31px] sm:w-[60px] sm:h-[58px] shrink-0" />
           <div className="flex flex-col gap-4 items-start">
             <Wordmark
               className={[
                 'gap-2 sm:gap-4',
-                'text-[18px] sm:text-[48px] leading-none tracking-tighter',
+                'text-[32px] sm:text-[48px] leading-none tracking-tighter',
                 'font-[600] sm:font-[200]',
               ].join(' ')}
             />
             <p
               className={[
                 'font-body font-normal',
-                'text-[11px] sm:text-[14px] leading-none sm:leading-[30px]',
+                'text-[11px] sm:text-[14px] leading-[16px] sm:leading-[30px]',
                 'text-[var(--text-caption)]',
+                'max-w-[17.5rem] sm:max-w-none',
               ].join(' ')}
             >
               {IDENTITY}
@@ -116,27 +117,27 @@ function StackedLayout() {
         {/* Horizontal navigation: page links | contact links */}
         <div className="flex flex-wrap gap-12 items-start w-full">
           <nav
-            className="flex flex-col gap-16 items-start w-[200px]"
+            className="flex flex-col gap-16 items-start flex-1 min-w-[8.75rem]"
             aria-label="Site navigation"
           >
             <PageLink href="/bio">About me</PageLink>
             <PageLink href="/enfineitz">What is Enfineitz?</PageLink>
           </nav>
-          <div className="flex flex-col gap-16 items-start w-[200px] min-w-[200px]">
+          <div className="flex flex-col gap-16 items-start flex-1 min-w-[8.75rem]">
             <ContactLink
               href="https://www.linkedin.com/in/enfineitz/"
-              icon="/icons/linkedin.svg"
+              iconClass="nav-social-icon--linkedin"
               label="LinkedIn"
             />
             <ContactLink
               href="mailto:jurgen@enfineitz.com"
-              icon="/icons/email.svg"
+              iconClass="nav-social-icon--email"
               label="jurgen@enfineitz.com"
             />
             <ContactLink
               href="https://www.behance.net/bunyip21"
-              icon="/icons/behance.svg"
-              label="Behance"
+              iconClass="nav-social-icon--behance"
+              label="Bēhance"
             />
           </div>
         </div>
@@ -321,7 +322,7 @@ function PageLink({
         'font-display font-[600]',
         'text-body tracking-wide',
         'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
-        'py-4 transition-colors duration-150 whitespace-nowrap',
+        'py-2 transition-colors duration-150 whitespace-nowrap',
       ].join(' ')}
     >
       {children}
@@ -329,40 +330,35 @@ function PageLink({
   )
 }
 
-// Contact link — 16px icon + mozilla-headline Medium label
+// Contact link — 16px masked icon + display Bold label. The whole row is a
+// single link; the icon is a CSS mask painted with currentColor so it inherits
+// the link color (orange --link-rest) in every state, matching the other
+// breakpoints' navigation.
 function ContactLink({
   href,
-  icon,
+  iconClass,
   label,
 }: {
   href: string
-  icon: string
+  iconClass: string
   label: string
 }) {
   const isMail = href.startsWith('mailto')
   return (
-    <div className="flex gap-8 items-center py-2 w-full shrink-0">
-      <Image
-        src={icon}
-        alt=""
-        width={16}
-        height={16}
-        className="shrink-0"
-        aria-hidden="true"
-      />
-      <a
-        href={href}
-        target={isMail ? undefined : '_blank'}
-        rel={isMail ? undefined : 'noopener noreferrer'}
-        className={[
-          'font-display font-[600]',
-          'text-[14px] tracking-wide',
-          'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
-          'transition-colors duration-150',
-        ].join(' ')}
-      >
-        {label}
-      </a>
-    </div>
+    <a
+      href={href}
+      target={isMail ? undefined : '_blank'}
+      rel={isMail ? undefined : 'noopener noreferrer'}
+      className={[
+        'flex gap-8 items-center py-2 w-full shrink-0',
+        'font-display font-[600]',
+        'text-[14px] tracking-wide',
+        'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
+        'transition-colors duration-150',
+      ].join(' ')}
+    >
+      <span className={`nav-social-icon ${iconClass}`} aria-hidden="true" />
+      {label}
+    </a>
   )
 }
