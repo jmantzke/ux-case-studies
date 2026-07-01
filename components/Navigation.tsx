@@ -107,7 +107,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
       href={href}
       className={[
         'font-display font-[600]',
-        'text-body tracking-wide',
+        'text-body-lg tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',
         'py-2',                       // margin/3xs = 2px vertical padding
@@ -142,7 +142,7 @@ function SocialLink({
       className={[
         'flex gap-8 items-center shrink-0',
         'font-display font-[600]',
-        'text-[14px] tracking-wide',
+        'text-body-lg tracking-wide',
         'text-[var(--link-rest)]',
         'hover:text-[var(--link-hover)]',
         'py-2',

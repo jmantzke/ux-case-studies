@@ -320,7 +320,7 @@ function PageLink({
       href={href}
       className={[
         'font-display font-[600]',
-        'text-body tracking-wide',
+        'text-body-lg tracking-wide',
         'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
         'py-2 transition-colors duration-150 whitespace-nowrap',
       ].join(' ')}
@@ -352,7 +352,7 @@ function ContactLink({
       className={[
         'flex gap-8 items-center py-2 w-full shrink-0',
         'font-display font-[600]',
-        'text-[14px] tracking-wide',
+        'text-body-lg tracking-wide',
         'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
         'transition-colors duration-150',
       ].join(' ')}
