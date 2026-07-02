@@ -3,11 +3,11 @@ import type { ReactNode } from 'react'
 import GlobalHeader from '@/components/GlobalHeader'
 
 // ─── ErrorPage ────────────────────────────────────────────────────────────────
-// Shared shell for all error/status screens (404, 403, 500, 503, runtime error).
-// Mirrors the Figma error/404 component (1076:3797): the shattered
-// enfineitz-glyph illustration sits behind a right-aligned text block. The big
-// status code renders either as the pixel-matched "404" SVG (codeImage) or as
-// display-font text (code). Heading + message + optional actions follow.
+// Shared shell for all error/status screens (403, 404, 408, 415, 500, 502, 503,
+// runtime error). Mirrors the Figma error component (1076:3797): the shattered
+// enfineitz-glyph-large illustration sits behind a right-aligned text block. The
+// big status code renders either as its pixel-matched numeral SVG (codeImage) or
+// as display-font text (code). Heading + message + optional actions follow.
 
 type CodeImage = { src: string; width: number; height: number; alt: string }
 
@@ -37,10 +37,10 @@ export default function ErrorPage({
         <div className="relative w-full max-w-[906px]">
           {/* Decorative shattered-glyph illustration — scales with container */}
           <Image
-            src="/images/404/error-glyph.svg"
+            src="/images/errors/glyph.svg"
             alt=""
-            width={893}
-            height={869}
+            width={805}
+            height={783}
             aria-hidden="true"
             className="pointer-events-none select-none w-full h-auto"
           />

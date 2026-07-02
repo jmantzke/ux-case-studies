@@ -19,9 +19,9 @@ export default function NotFound() {
   return (
     <ErrorPage
       codeImage={{
-        src: '/images/404/404-numeral.svg',
-        width: 525,
-        height: 228,
+        src: '/images/errors/404.svg',
+        width: 520,
+        height: 226,
         alt: '404',
       }}
       heading="Nothing here"
