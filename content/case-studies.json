@@ -10,11 +10,11 @@
     "tags": ["UX Design", "Enterprise UX", "Workflow Design", "Flight Attendant", "iPad Workplace Application", "Alaska Airlines", "Recurrent training", "Mobile-First", "737", "Airbus A320"],
     "coverImage": "/images/abstract-tile-bkg-2.png",
     "coverAlt": "Alaska Airlines inflight recurrent training modernization",
-    "summary": "Alaska Airlines Inflight Recurrent Training"
+    "summary": "Alaska Airlines Inflight Recurrent Training App"
   },
   {
     "slug": "boeing-ngps-search",
-    "title": "Boeing NGPS",
+    "title": "NGPS Search",
     "pageTitle": "Boeing NGPS Search",
     "client": "Boeing",
     "role": "UX Designer",
@@ -23,12 +23,12 @@
     "tags": ["UX Design", "Enterprise UX", "Design Systems", "Boeing", "Military", "Aviation", "Maintenance", "Search", "Enterprise UX"],
     "coverImage": "/images/case-studies/boeing-ngps-search/boeing-ngps-card-bkg.png",
     "coverAlt": "Boeing NGPS Search maintenance record search",
-    "summary": "Military Aviation Maintenance Record Search",
+    "summary": "Boeing Military Aviation Maintenance Record Search App",
     "ogImage": "/og/boeing-ngps-1.png"
   },
   {
     "slug": "ecommerce-branding-kit",
-    "title": "AGT",
+    "title": "American Gold Trading",
     "pageTitle": "E-commerce branding kit",
     "client": "American Gold Trading",
     "role": "Lead UX & Brand Designer",
@@ -37,7 +37,7 @@
     "tags": ["Branding", "Design Systems", "Accessibility"],
     "coverImage": "/images/case-studies/ecommerce-branding-kit/agt-card-bkg.png",
     "coverAlt": "American Gold Trading e-commerce branding kit",
-    "summary": "E-commerce Branding Kit"
+    "summary": "An E-commerce Branding Kit"
   },
   {
     "slug": "alaska-airlines-pilot-vacation-trading",
@@ -50,11 +50,11 @@
     "tags": ["UX Design", "Mobile-First", "Enterprise UX"],
     "coverImage": "/images/case-studies/alaska-airlines-pilot-vacation-trading/alaska-pvt-card-bkg.png",
     "coverAlt": "Alaska Airlines pilot vacation trading feature",
-    "summary": "Alaska Airlines Pilot Vacation Trading"
+    "summary": "An App for Alaska Airlines Pilots"
   },
   {
     "slug": "atmosphere-adoption-study",
-    "title": "Atmosphere adoption",
+    "title": "Atmosphere Adoption",
     "pageTitle": "Atmosphere Design System Adoption Study",
     "client": "Boeing",
     "role": "Lead UX Designer",
@@ -63,7 +63,7 @@
     "tags": ["UX Research", "Design Systems", "Boeing", "Enterprise UX", "Atmosphere Design Language System", "AI-Enabled UX", "Design System Adoption", "UX strategy", "Figma", "Aerospace"],
     "coverImage": "/images/case-studies/atmosphere-adoption-study/atmosphere-adoption-card-bkg.png",
     "coverAlt": "Atmosphere Design Language System adoption study for Boeing product teams",
-    "summary": "Design system adoption study",
+    "summary": "A Research Project on Adoption of Boeing’s Atmosphere Design System",
     "ogImage": "/og/atmosphere-adoption.png"
   },
   {
@@ -77,7 +77,7 @@
     "tags": ["UX Design", "Enterprise UX", "Data Visualization", "Hitachi", "Enterprise Software", "Wireframing", "International UX", "Adobe Illustrator", "Data Center", "Storage Software"],
     "coverImage": "/images/case-studies/hitachi-dre/hitachi-dre-card-bkg.png",
     "coverAlt": "Hitachi Data Reduction Estimator GUI wizard for enterprise storage administrators",
-    "summary": "Turning a command line into a story a data-center admin could read",
+    "summary": "An App for Estimating Data Reduction for Data Centers",
     "ogImage": "/og/hitachi-dre-og.png"
   },
   {
@@ -90,12 +90,12 @@
     "tags": ["UX Design", "Enterprise UX", "Mobile-First", "Flight attendant", "Alaska Airlines","Personal drop request", "Airline business"],
     "coverImage": "/images/case-studies/alaska-airlines-personal-drop-request/alaska-pdr-card-bkg.png",
     "coverAlt": "Alaska Airlines Personal Drop Request feature for flight attendants",
-    "summary": "Alaska Airlines Flight Attendants",
+    "summary": "Alaska Airlines Flight Attendants Route Drop App",
     "ogImage": "/og/alaska-FA-PDR.png"
   },
   {
     "slug": "ngps-aircraft-detail-redesign",
-    "title": "NGPS Aircraft detail",
+    "title": "NGPS Aircraft Detail",
     "pageTitle": "NGPS Aircraft Detail Redesign",
     "client": "Boeing",
     "role": "UX Designer",
@@ -104,12 +104,12 @@
     "tags": ["UX Design", "Enterprise UX", "Data Visualization", "US Navy Aviation", "Marine Corps Aviation", "Military Aviation Maintenance", "F/A-18", "Boeing"],
     "coverImage": "/images/abstract-tile-bkg-7.png",
     "coverAlt": "NGPS Aircraft detail maintenance data display",
-    "summary": "Military Aviation Maintenance Data Display",
+    "summary": "Detailed View of Boeing Military Aircraft Maintenance History",
     "ogImage": "/og/boeing-ngps-2.png"
   },
   {
     "slug": "wanderlist",
-    "title": "Wanderlist app",
+    "title": "Wanderlist",
     "pageTitle": "Wanderlist",
     "client": "Stanford Capstone Project",
     "role": "Solo UX Designer & Researcher",
@@ -118,11 +118,11 @@
     "tags": ["UX Research", "AI-Powered UX", "Prototyping"],
     "coverImage": "/images/case-studies/wanderlist/wanderlist-card-bkg.png",
     "coverAlt": "Wanderlist AI-powered road trip planner",
-    "summary": "Stanford University program capstone project"
+    "summary": "A Road Trip Planning App with AI Enhancements"
   },
   {
     "slug": "smart-response-geneva",
-    "title": "SmartResponse study",
+    "title": "SmartResponse Field Studies",
     "client": "SmartResponse — Disaster Accountability Project",
     "role": "Volunteer UX Designer & Researcher",
     "year": 2025,
@@ -130,7 +130,7 @@
     "tags": ["UX Research", "Field Research", "Nonprofit UX", "Guerrilla Research", "Disaster Relief", "SmartResponse", "United Nations", "Geneva", "Disaster Accountability Project", "Usability Testing", "Ethnographic Studies"],
     "coverImage": "/images/abstract-tile-bkg-8.png",
     "coverAlt": "Guerrilla UX research for SmartResponse at the UN Global Platform for Disaster Risk Reduction in Geneva",
-    "summary": "Guerrilla User Research",
+    "summary": "A Research Project at the United Nations in Geneva",
     "ogImage": "/og/sr-geneva-2025.png"
   }
 ]
