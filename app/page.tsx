@@ -311,26 +311,46 @@ function Wordmark({ className }: { className?: string }) {
   )
 }
 
-// Card grid — fixed 2-column grid at every breakpoint (Figma card-grid).
+// Card grid — fluid two-column flex layout that collapses to one column at
+// XS (Figma "grid and breakpoints/*.containers.case-study"). Container-max
+// and card-min come from that Figma collection; grid-gutter is a flat 8px at
+// every breakpoint (the collection's own "Gutters" field is a documented red
+// herring — see design_handoff_case_study_card_blades/README.md).
 function CardGrid({ className }: { className?: string }) {
   return (
     <section aria-label="Case study portfolio" className="w-full">
       <div
-        className={['grid grid-cols-2 items-start w-full', className]
+        className={[
+          'mx-auto flex flex-wrap items-start w-full',
+          // container-max: XS/SM 900 · MD 1000 · LG/XL 1200
+          'max-w-[900px] md:max-w-[1000px] lg:max-w-[1200px]',
+          className,
+        ]
           .filter(Boolean)
           .join(' ')}
       >
         {publishedStudies.map((study) => (
-          <CaseStudyCard
+          <div
             key={study.slug}
-            slug={study.slug}
-            title={study.title}
-            summary={study.summary}
-            coverImage={study.coverImage}
-            coverAlt={study.coverAlt}
-            tags={study.tags}
-            year={study.year}
-          />
+            className={[
+              // XS: forced single column, not left to natural wrapping
+              'w-full',
+              // SM+: fluid two columns — card-min 300, gutter 8px (calc
+              // matches the 8px gap set on the flex container above)
+              'sm:w-auto sm:grow sm:shrink sm:basis-[calc(50%-4px)]',
+              'sm:min-w-[300px] sm:max-w-[900px]',
+            ].join(' ')}
+          >
+            <CaseStudyCard
+              slug={study.slug}
+              title={study.title}
+              summary={study.summary}
+              coverImage={study.coverImage}
+              coverAlt={study.coverAlt}
+              tags={study.tags}
+              year={study.year}
+            />
+          </div>
         ))}
       </div>
     </section>

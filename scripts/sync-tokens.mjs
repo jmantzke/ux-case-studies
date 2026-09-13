@@ -164,6 +164,26 @@ const scales = {
   hero1:    typoScale('hero1'),
 };
 
+// ─── Extract motion tokens ───────────────────────────────────────────────────
+
+const motion = raw['motion/Mode 1'];
+
+const motionVars = {
+  '--motion-ease-blade':        motion.easing.blade.$value,
+  '--motion-duration-open':     `${motion.duration['card-open'].$value}ms`,
+  '--motion-duration-close':    `${motion.duration['card-close'].$value}ms`,
+  '--motion-stagger-step':      `${motion.duration['stagger-step'].$value}ms`,
+  '--motion-blade-angle':       `${motion.rotation['blade-angle'].$value}deg`,
+  '--motion-blade-press-boost': `${motion.rotation['blade-press-boost'].$value}deg`,
+  '--motion-blade-origin':      motion['transform-origin'].blade.$value,
+};
+
+function motionBlock() {
+  return Object.entries(motionVars)
+    .map(([k, v]) => `  ${k}: ${v};`)
+    .join('\n');
+}
+
 // ─── Extract semantic colour roles ───────────────────────────────────────────
 
 const dark  = raw['color roles/dark mode'];
@@ -288,6 +308,11 @@ ${buildCssVarBlock('light')}
 /* ─── Semantic color roles — dark mode ──────────────────────────────────────── */
 .dark {
 ${buildCssVarBlock('dark')}
+}
+
+/* ─── Motion tokens (auto-generated from tokens/enfineitz-tokens.json) ──────── */
+:root {
+${motionBlock()}
 }
 `;
 

@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from './CaseStudyCard.module.css'
+import { getCardBlades } from './caseStudyBlades'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -21,11 +23,14 @@ export default function CaseStudyCard({
   summary,
   coverImage,
 }: CaseStudyCardProps) {
+  const blades = getCardBlades(slug)
+
   return (
     <Link
       href={`/case-study/${slug}`}
       className={[
-        'group block',
+        styles.link,
+        'block',
         // Fills its 2-column grid cell; capped at max-width 900 (Figma card-grid)
         'w-full min-w-0 max-w-[900px]',
         'rounded-msm',
@@ -35,15 +40,13 @@ export default function CaseStudyCard({
     >
       <article
         className={[
+          styles.card,
           // Base layout — surface/card/rest, rounded-msm (16px), clipped
           'relative flex flex-col overflow-clip rounded-msm',
           // Responsive card height: XS 140 · SM 160 · MD+ 180
           'h-[140px] sm:h-[160px] md:h-[180px]',
           // Responsive card margins: XS 20 · SM+ 32
           'p-20 sm:p-32',
-          // Rest / hover surface (tokens)
-          'bg-[var(--surface-card-rest)] group-hover:bg-[var(--surface-card-hover)]',
-          'transition-colors duration-200 ease-in-out',
         ].join(' ')}
       >
         {/* ── Decorative background — anchored bottom-right (Figma card-bkg) ── */}
@@ -62,6 +65,30 @@ export default function CaseStudyCard({
           </div>
         </div>
 
+        {/* ── Animated blade layer — decorative, cropped by the card radius ──
+            Sits above the cover art, below the title/summary (z-10 below).
+            Six blades: three anchored off the top-right corner (clockwise),
+            three off the bottom-right (counter-clockwise). Combination is
+            fixed per case study so no two cards animate identically. */}
+        {blades && (
+          <div className={styles.bladeLayer} aria-hidden="true">
+            {blades.map(({ slot, shape }) => {
+              const [, , vbWidth, vbHeight] = shape.viewBox.split(' ').map(Number)
+              return (
+                <span
+                  key={slot}
+                  className={[styles.blade, styles[`blade--${slot}`]].join(' ')}
+                  style={{ aspectRatio: `${vbWidth} / ${vbHeight}` }}
+                >
+                  <svg viewBox={shape.viewBox} preserveAspectRatio="none">
+                    <path d={shape.d} />
+                  </svg>
+                </span>
+              )
+            })}
+          </div>
+        )}
+
         {/* ── Title + subtitle (Figma title block) ── */}
         <div
           className={[
@@ -73,8 +100,13 @@ export default function CaseStudyCard({
           ].join(' ')}
         >
           {/* Title — heimat-stencil Bold (600), font-size/50 (18px), tracking-tight.
-              Rest → orange (link/rest); hover → white (link/active). */}
-          <h3 className="font-display font-[600] text-[18px] leading-none tracking-tight text-[var(--link-rest)] group-hover:text-[var(--link-active)] transition-colors duration-200">
+              Rest → orange (link/rest); hover/press/focus → white (link/active). */}
+          <h3
+            className={[
+              styles.title,
+              'font-display font-[600] text-[18px] leading-none tracking-tight',
+            ].join(' ')}
+          >
             {title}
           </h3>
 

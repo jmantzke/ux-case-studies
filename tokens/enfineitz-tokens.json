@@ -4164,6 +4164,44 @@
       }
     }
   },
+  "motion/Mode 1": {
+    "easing": {
+      "blade": {
+        "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "$type": "string"
+      }
+    },
+    "duration": {
+      "card-open": {
+        "$value": 170,
+        "$type": "number"
+      },
+      "card-close": {
+        "$value": 600,
+        "$type": "number"
+      },
+      "stagger-step": {
+        "$value": 65,
+        "$type": "number"
+      }
+    },
+    "rotation": {
+      "blade-angle": {
+        "$value": 15,
+        "$type": "number"
+      },
+      "blade-press-boost": {
+        "$value": 10,
+        "$type": "number"
+      }
+    },
+    "transform-origin": {
+      "blade": {
+        "$value": "100% 50%",
+        "$type": "string"
+      }
+    }
+  },
   "content/Mode 1": {
     "brand summary": {
       "$extensions": {
@@ -6363,6 +6401,7 @@
       "color roles/dark mode",
       "color roles/light mode",
       "typography/Mode 1",
+      "motion/Mode 1",
       "content/Mode 1",
       "grid and breakpoints/XS",
       "grid and breakpoints/SM",

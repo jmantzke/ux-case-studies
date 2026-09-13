@@ -114,6 +114,17 @@
   --crumb-active: #ffffff;
 }
 
+/* ─── Motion tokens (auto-generated from tokens/enfineitz-tokens.json) ──────── */
+:root {
+  --motion-ease-blade: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --motion-duration-open: 170ms;
+  --motion-duration-close: 600ms;
+  --motion-stagger-step: 65ms;
+  --motion-blade-angle: 15deg;
+  --motion-blade-press-boost: 10deg;
+  --motion-blade-origin: 100% 50%;
+}
+
 /* ─── Social icons ───────────────────────────────────────────────────────────
    Rendered as CSS masks so the glyph is painted with `currentColor`, letting
    each icon inherit the link text color in every state (rest/hover) — matching

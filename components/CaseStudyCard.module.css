@@ -1,0 +1,186 @@
+/* ─── CaseStudyCard — animated hover/press blade layer ──────────────────────
+   Geometry, timings and combinations: design_handoff_case_study_card_blades/
+   README.md. Motion tokens (--motion-*) come from tokens/enfineitz-tokens.json
+   via scripts/sync-tokens.mjs — do not hardcode timing values here without
+   also updating the token source.
+
+   Asymmetric open/close timing relies on a standard CSS technique: a
+   transition uses the *end* state's transition-duration/-delay. The rest
+   (".card"/".title"/".blade") rules carry the 600ms close duration and the
+   close-order stagger; the hover/focus-visible/active rules override to the
+   170ms open duration and the open-order stagger. */
+
+.card {
+  background-color: var(--surface-card-rest);
+  transition: background-color var(--motion-duration-close) var(--motion-ease-blade);
+}
+
+.link:hover .card,
+.link:focus-visible .card,
+.link:active .card {
+  background-color: var(--surface-card-hover);
+  transition-duration: var(--motion-duration-open);
+}
+
+.title {
+  color: var(--link-rest);
+  transition: color var(--motion-duration-close) var(--motion-ease-blade);
+}
+
+.link:hover .title,
+.link:focus-visible .title,
+.link:active .title {
+  color: var(--link-active);
+  transition-duration: var(--motion-duration-open);
+}
+
+/* ── Blade layer ── */
+
+.bladeLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.blade {
+  position: absolute;
+  transform-origin: var(--motion-blade-origin);
+  transform: rotate(0deg);
+  transition-property: transform;
+  transition-duration: var(--motion-duration-close);
+  transition-timing-function: var(--motion-ease-blade);
+}
+
+.blade svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.blade svg path {
+  fill: #000;
+  fill-opacity: 0.2;
+}
+
+/* Fixed slot geometry + close-order stagger (applied on the way back to rest) */
+.blade--top-1 {
+  width: 300px;
+  right: -24px;
+  top: -14px;
+  transition-delay: 130ms;
+}
+.blade--top-2 {
+  width: 280px;
+  right: -32px;
+  top: -8px;
+  transition-delay: 0ms;
+}
+.blade--top-3 {
+  width: 290px;
+  right: -18px;
+  top: -20px;
+  transition-delay: 65ms;
+}
+.blade--bottom-1 {
+  width: 300px;
+  right: -28px;
+  bottom: -16px;
+  transition-delay: 163ms;
+}
+.blade--bottom-2 {
+  width: 250px;
+  right: -16px;
+  bottom: -10px;
+  transition-delay: 65ms;
+}
+.blade--bottom-3 {
+  width: 320px;
+  right: -36px;
+  bottom: -22px;
+  transition-delay: 0ms;
+}
+
+/* Open (hover / keyboard focus) — open-order stagger, nominal slot angle */
+.link:hover .blade--top-1,
+.link:focus-visible .blade--top-1 {
+  transform: rotate(15deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 0ms;
+}
+.link:hover .blade--top-2,
+.link:focus-visible .blade--top-2 {
+  transform: rotate(16deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 65ms;
+}
+.link:hover .blade--top-3,
+.link:focus-visible .blade--top-3 {
+  transform: rotate(14deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 130ms;
+}
+.link:hover .blade--bottom-1,
+.link:focus-visible .blade--bottom-1 {
+  transform: rotate(-15deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 33ms;
+}
+.link:hover .blade--bottom-2,
+.link:focus-visible .blade--bottom-2 {
+  transform: rotate(-14deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 98ms;
+}
+.link:hover .blade--bottom-3,
+.link:focus-visible .blade--bottom-3 {
+  transform: rotate(-16deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 163ms;
+}
+
+/* Press — same open timing/stagger, slot angle + press boost, same direction */
+.link:active .blade--top-1 {
+  transform: rotate(25deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 0ms;
+}
+.link:active .blade--top-2 {
+  transform: rotate(26deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 65ms;
+}
+.link:active .blade--top-3 {
+  transform: rotate(24deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 130ms;
+}
+.link:active .blade--bottom-1 {
+  transform: rotate(-25deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 33ms;
+}
+.link:active .blade--bottom-2 {
+  transform: rotate(-24deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 98ms;
+}
+.link:active .blade--bottom-3 {
+  transform: rotate(-26deg);
+  transition-duration: var(--motion-duration-open);
+  transition-delay: 163ms;
+}
+
+/* Respect reduced motion: keep the background/title colour change, drop the
+   blade rotation to a no-op entirely (not just an instant snap). */
+@media (prefers-reduced-motion: reduce) {
+  .blade {
+    transition: none;
+  }
+  .link:hover .blade,
+  .link:focus-visible .blade,
+  .link:active .blade {
+    transform: rotate(0deg);
+  }
+}
