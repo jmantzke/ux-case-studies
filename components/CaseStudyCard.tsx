@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import styles from './CaseStudyCard.module.css'
 import { getCardBlades } from './caseStudyBlades'
@@ -9,8 +8,6 @@ export type CaseStudyCardProps = {
   slug: string
   title: string
   summary: string
-  coverImage: string
-  coverAlt: string
   tags?: string[]
   year?: number
 }
@@ -21,7 +18,6 @@ export default function CaseStudyCard({
   slug,
   title,
   summary,
-  coverImage,
 }: CaseStudyCardProps) {
   const blades = getCardBlades(slug)
 
@@ -49,24 +45,9 @@ export default function CaseStudyCard({
           'p-20 sm:p-32',
         ].join(' ')}
       >
-        {/* ── Decorative background — anchored bottom-right (Figma card-bkg) ── */}
-        <div
-          className="absolute bottom-0 right-0 h-[167px] w-[317px] overflow-clip pointer-events-none"
-          aria-hidden="true"
-        >
-          <div className="absolute bottom-[-0.33px] right-0 h-[186px] w-[245px]">
-            <Image
-              src={coverImage}
-              alt=""
-              fill
-              sizes="245px"
-              className="object-cover"
-            />
-          </div>
-        </div>
-
         {/* ── Animated blade layer — decorative, cropped by the card radius ──
-            Sits above the cover art, below the title/summary (z-10 below).
+            Sits below the title/summary (z-10 below). The card carries no
+            cover art: the blades are the only decoration over the surface.
             Six blades: three anchored off the top-right corner (clockwise),
             three off the bottom-right (counter-clockwise). Combination is
             fixed per case study so no two cards animate identically. */}

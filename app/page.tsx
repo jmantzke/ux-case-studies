@@ -345,8 +345,6 @@ function CardGrid({ className }: { className?: string }) {
               slug={study.slug}
               title={study.title}
               summary={study.summary}
-              coverImage={study.coverImage}
-              coverAlt={study.coverAlt}
               tags={study.tags}
               year={study.year}
             />
