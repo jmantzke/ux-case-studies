@@ -46,6 +46,7 @@ jobs:
           rsync -az --delete \
             --exclude='.well-known/' \
             --exclude='.htaccess' \
+            --exclude='.DS_Store' \
             -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.VPS_PORT || 22 }}" \
             ./out/ \
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:~/publicsubs_case_studies/case-studies.enfineitz.com/
