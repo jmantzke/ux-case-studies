@@ -219,7 +219,11 @@ function TwoColumnLayout() {
             className="flex flex-col gap-24 items-start w-full transition-[translate] duration-[250ms] ease-[cubic-bezier(0.33,1,0.68,1)]"
             shift="translate-y-[-99px]"
           >
-            <div className="w-full pr-16">
+            {/* pt-8 (space/8) optically aligns the first line with the
+                wordmark's cap height across the gutter: the 22px line-height
+                leaves half-leading above the glyphs, so matching box tops
+                would read as misaligned. */}
+            <div className="w-full pr-16 pt-8">
               <p
                 className={[
                   'font-body font-medium',
