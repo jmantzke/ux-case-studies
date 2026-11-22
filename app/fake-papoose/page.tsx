@@ -26,11 +26,13 @@ export const metadata: Metadata = {
     title: `${content.metadataTitle} | Jurgen Mantzke`,
     description: DESCRIPTION,
     url: 'https://case-studies.enfineitz.com/fake-papoose',
+    images: [{ url: '/og/fake-papoose.png', width: 1201, height: 631 }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: `${content.metadataTitle} | Jurgen Mantzke`,
     description: DESCRIPTION,
+    images: ['/og/fake-papoose.png'],
   },
   alternates: {
     canonical: 'https://case-studies.enfineitz.com/fake-papoose',
