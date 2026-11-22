@@ -4,7 +4,7 @@
  *
  *   GET  /api/plays.php          → { "counts": { "A1-T1": 12, ... } }
  *   POST /api/plays.php          → body { "track": "A1-T1" }; counts one play
- *   GET  /api/plays.php?whoami   → { "ip": "...", "excluded": true|false }
+ *   GET  /api/plays.php?my-ip    → { "ip": "...", "excluded": true|false }
  *
  * Data lives outside the web root so deploys (rsync --delete) never touch it:
  *   ~/domains/enfineitz.com/private/fake-papoose/
@@ -84,7 +84,7 @@ function readCounts(string $dataDir): array
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 
 if ($method === 'GET') {
-    if (isset($_GET['whoami'])) {
+    if (isset($_GET['my-ip'])) {
         respond(200, ['ip' => $ip, 'excluded' => isExcluded($ip, $dataDir)]);
     }
     respond(200, ['counts' => readCounts($dataDir)]);
