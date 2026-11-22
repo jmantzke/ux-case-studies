@@ -46,3 +46,6 @@ style.css.map
 *.backup
 *.before-cleanup
 
+
+# local play-counter data (npm run preview)
+/.local-data/

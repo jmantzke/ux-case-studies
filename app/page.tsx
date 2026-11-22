@@ -126,11 +126,9 @@ function StackedLayout() {
           >
             <PageLink href="/bio">About me</PageLink>
             <PageLink href="/enfineitz">What is Enfineitz?</PageLink>
-            <ContactLink
-              href="https://www.upwork.com/freelancers/enfineitz"
-              iconClass="nav-social-icon--upwork"
-              label="Upwork"
-            />
+            <PageLink href="/fake-papoose" iconClass="nav-social-icon--fake-papoose">
+              Fake Papoose
+            </PageLink>
           </nav>
           <div className="flex flex-col gap-16 items-start flex-1 min-w-[8.75rem]">
             <ContactLink
@@ -359,24 +357,28 @@ function CardGrid({ className }: { className?: string }) {
   )
 }
 
-// Page link — mozilla-headline Medium, 14px, tracking loose
+// Page link — mozilla-headline Medium, 14px, tracking loose, optional masked icon
 function PageLink({
   href,
+  iconClass,
   children,
 }: {
   href: string
+  iconClass?: string
   children: React.ReactNode
 }) {
   return (
     <Link
       href={href}
       className={[
+        'flex gap-8 items-center',
         'font-display font-[600]',
         'text-body-lg tracking-wide',
         'text-[var(--link-rest)] hover:text-[var(--link-hover)]',
         'py-2 transition-colors duration-150 whitespace-nowrap',
       ].join(' ')}
     >
+      {iconClass && <span className={`nav-social-icon ${iconClass}`} aria-hidden="true" />}
       {children}
     </Link>
   )

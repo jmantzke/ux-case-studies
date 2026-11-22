@@ -1,0 +1,19 @@
+{
+  "metadataTitle": "Fake Papoose",
+  "title": "Fake Papoose",
+  "description": "Six tracks by Fake Papoose, Jürgen Mantzke's industrial and EBM music alias, played on an interactive vinyl turntable.",
+  "paragraphs": [
+    "Fake Papoose is the alias I create music under. I have created thirteen tracks in GarageBand since 2024, and I continue to compose new songs. This is a sampling of six curated tracks from my body of work.",
+    "I do not sing, so any vocals in my songs are samples taken from podcasts, movies, tv shows and video games.",
+    "My inspiration comes from the industrial and EBM music I have listened to most of my life. The strongest influences are Juno Reactor, Front 242, Front Line Assembly, Nitzer Ebb, Meat Beat Manifesto, and Circle of Dust.",
+    "This is a hobby project, and the vinyl turntable here is an experiment to see how complex of a feature I can create with vibe-coding. I designed everything and used Claude Opus to construct it. The tracks themselves use zero AI for composition."
+  ],
+  "tracks": [
+    { "id": "A1-T1", "title": "The Navy Base Scenario", "album": "Human Nature is Europa", "year": "2025", "length": "05:53", "cover": "album-1" },
+    { "id": "A1-T3", "title": "Human Nature is Europa", "album": "Human Nature is Europa", "year": "2025", "length": "05:21", "cover": "album-1" },
+    { "id": "A1-T4", "title": "Redundant Testing", "album": "Human Nature is Europa", "year": "2025", "length": "05:09", "cover": "album-1" },
+    { "id": "A1-T7", "title": "Soyuz Lux Fulgebit", "album": "Human Nature is Europa", "year": "2025", "length": "05:09", "cover": "album-1" },
+    { "id": "A2-T2", "title": "Passing Sonar Nets", "album": "Blood into Gasoline", "year": "2026", "length": "07:01", "cover": "album-2" },
+    { "id": "A2-T3", "title": "Blood into Gasoline", "album": "Blood into Gasoline", "year": "2026", "length": "06:46", "cover": "album-2" }
+  ]
+}

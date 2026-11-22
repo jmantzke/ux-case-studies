@@ -133,7 +133,50 @@ const borderRadius = {
 
 // ─── Extract breakpoints ─────────────────────────────────────────────────────
 
-const bp = G.breakpoints.screen;
+// Each "grid and breakpoints" mode is one breakpoint; its viewport/min-width
+// is where that breakpoint starts.
+const BP_MODES = ['XS', 'SM', 'MD', 'LG', 'XL'];
+const bpSets = Object.fromEntries(BP_MODES.map(m => [m, raw[`grid and breakpoints/${m}`]]));
+const bpMin  = Object.fromEntries(BP_MODES.map(m => [m, bpSets[m].viewport['min-width'].$value]));
+
+// ─── Extract per-breakpoint layout tokens ────────────────────────────────────
+// Every number in a breakpoint mode becomes a CSS variable that changes at that
+// breakpoint (e.g. grid/margin → --grid-margin). Aliases resolve inside the same
+// mode first ({grid.gutter}), then against the global sets.
+
+function resolveInMode(modeFlat, v, depth = 0) {
+  const match = typeof v === 'string' && v.match(/^\{(.+)\}$/);
+  if (!match || depth > 8) return v;
+  const local = modeFlat[match[1]];
+  return local ? resolveInMode(modeFlat, local.$value, depth + 1) : resolveRef(v);
+}
+
+function layoutVars(mode) {
+  const modeFlat = flatten(bpSets[mode]);
+  const vars = {};
+  for (const [key, token] of Object.entries(modeFlat)) {
+    if (/^(_?deprecated|viewport)\./.test(key) || token.$type !== 'number') continue;
+    const val = resolveInMode(modeFlat, token.$value);
+    const unit = key.endsWith('columns') ? '' : 'px';
+    vars[`--${key.replace(/[.\s]+/g, '-')}`] = `${val}${unit}`;
+  }
+  return vars;
+}
+
+function layoutBlock() {
+  let prev = {};
+  return BP_MODES.map((mode, i) => {
+    const vars = layoutVars(mode);
+    const lines = Object.entries(vars)
+      .filter(([k, v]) => prev[k] !== v)
+      .map(([k, v]) => `  ${k}: ${v};`);
+    prev = vars;
+    const body = `:root {\n${lines.join('\n')}\n}`;
+    return i === 0
+      ? `/* ${mode} */\n${body}`
+      : `/* ${mode} */\n@media (min-width: ${bpMin[mode]}px) {\n${body.replace(/^/gm, '  ')}\n}`;
+  }).join('\n\n');
+}
 
 // ─── Extract typography scale ────────────────────────────────────────────────
 
@@ -176,7 +219,21 @@ const motionVars = {
   '--motion-blade-angle':       `${motion.rotation['blade-angle'].$value}deg`,
   '--motion-blade-press-boost': `${motion.rotation['blade-press-boost'].$value}deg`,
   '--motion-blade-origin':      motion['transform-origin'].blade.$value,
+  '--motion-ease-out':          motion.easing['ease-out'].$value,
+  '--motion-ease-in':           motion.easing['ease-in'].$value,
+  '--motion-ease-in-out':       motion.easing['ease-in-out'].$value,
 };
+
+// Vinyl record player: unit comes from the token name suffix
+// (-rotation → deg, -duration/-delay → ms, sticker-rpm stays unitless).
+function vinylUnit(name) {
+  if (name.endsWith('-rotation')) return 'deg';
+  if (name.endsWith('-duration') || name.endsWith('-delay')) return 'ms';
+  return '';
+}
+for (const [name, token] of Object.entries(motion.vinyl)) {
+  motionVars[`--motion-vinyl-${name}`] = `${token.$value}${vinylUnit(name)}`;
+}
 
 function motionBlock() {
   return Object.entries(motionVars)
@@ -210,6 +267,15 @@ const semanticMap = {
   '--surface-page-alt':   ['surface.page-alt', 'surface.page-alt'],
   '--surface-card-rest':  ['surface.card.rest','surface.card.rest'],
   '--surface-card-hover': ['surface.card.hover','surface.card.hover'],
+  '--surface-record-player-cabinet':       ['surface.record-player.cabinet',      'surface.record-player.cabinet'],
+  '--surface-record-player-control-panel': ['surface.record-player.control-panel','surface.record-player.control-panel'],
+
+  '--vinyl-console-rpm-glow': ['vinyl.console.rpm-glow','vinyl.console.rpm-glow'],
+  '--vinyl-button-text-icon-rest':     ['vinyl.button.text-icon.rest',    'vinyl.button.text-icon.rest'],
+  '--vinyl-button-text-icon-hover':    ['vinyl.button.text-icon.hover',   'vinyl.button.text-icon.hover'],
+  '--vinyl-button-text-icon-focus':    ['vinyl.button.text-icon.focus',   'vinyl.button.text-icon.focus'],
+  '--vinyl-button-text-icon-active':   ['vinyl.button.text-icon.active',  'vinyl.button.text-icon.active'],
+  '--vinyl-button-text-icon-inactive': ['vinyl.button.text-icon.inactive','vinyl.button.text-icon.inactive'],
 
   '--text-body':            ['typography.body',           'typography.body'],
   '--text-header':          ['typography.header',         'typography.header'],
@@ -314,6 +380,9 @@ ${buildCssVarBlock('dark')}
 :root {
 ${motionBlock()}
 }
+
+/* ─── Layout tokens per breakpoint (auto-generated from "grid and breakpoints") ─ */
+${layoutBlock()}
 `;
 
 // ─── Hand-authored CSS footer (preserved across regenerations) ───────────────
@@ -354,9 +423,9 @@ const cssFooter = `
   -webkit-mask-image: url('/icons/soundcloud.svg');
   mask-image: url('/icons/soundcloud.svg');
 }
-.nav-social-icon--upwork {
-  -webkit-mask-image: url('/icons/upwork.svg');
-  mask-image: url('/icons/upwork.svg');
+.nav-social-icon--fake-papoose {
+  -webkit-mask-image: url('/icons/fake-papoose.svg');
+  mask-image: url('/icons/fake-papoose.svg');
 }
 
 /* ─── Page background ─────────────────────────────────────────────────────────
@@ -415,11 +484,9 @@ function spacingSeries() {
 }
 
 // Breakpoints
-const screens = `      xs: '${px(bp['xs-min-width'].$value)}',
-      sm: '${px(bp['sm-min-width'].$value)}',
-      md: '${px(bp['md-min-width'].$value)}',
-      lg: '${px(bp['lg-min-width'].$value)}',
-      xl: '${px(bp['xl-min-width'].$value)}',`;
+const screens = BP_MODES
+  .map(m => `      ${m.toLowerCase()}: '${px(bpMin[m])}',`)
+  .join('\n');
 
 const tailwind = `/** @type {import('tailwindcss').Config} */
 /* AUTO-GENERATED — do not edit by hand. Run: node scripts/sync-tokens.mjs */

@@ -11,11 +11,11 @@ module.exports = {
 
   theme: {
     screens: {
-      xs: '200px',
-      sm: '480px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1440px',
+      xs: '320px',
+      sm: '672px',
+      md: '1056px',
+      lg: '1312px',
+      xl: '1584px',
     },
 
     extend: {

@@ -12,17 +12,20 @@ import CurrentYear from '@/components/CurrentYear'
 //   • Home      → displayCaseStudies={false}
 //   • About me  → displayAbout={false}
 //   • Manifesto → displayManifesto={false}
+//   • Fake Papoose → displayFakePapoose={false}
 
 export default function Navigation({
   displayAbout = true,
   displayManifesto = true,
   displayCaseStudies = true,
+  displayFakePapoose = true,
   layout = 'vertical',
   showCopyright = true,
 }: {
   displayAbout?: boolean
   displayManifesto?: boolean
   displayCaseStudies?: boolean
+  displayFakePapoose?: boolean
   layout?: 'vertical' | 'horizontal'
   showCopyright?: boolean
 } = {}) {
@@ -31,11 +34,11 @@ export default function Navigation({
       {displayAbout && <NavLink href="/bio">About me</NavLink>}
       {displayManifesto && <NavLink href="/enfineitz">What is Enfineitz?</NavLink>}
       {displayCaseStudies && <NavLink href="/">Case studies</NavLink>}
-      <SocialLink
-        href="https://www.upwork.com/freelancers/enfineitz"
-        iconClass="nav-social-icon--upwork"
-        label="Upwork"
-      />
+      {displayFakePapoose && (
+        <NavLink href="/fake-papoose" iconClass="nav-social-icon--fake-papoose">
+          Fake Papoose
+        </NavLink>
+      )}
     </nav>
   )
 
@@ -109,13 +112,23 @@ function Copyright() {
 }
 
 // ─── Nav Link ─────────────────────────────────────────────────────────────────
-// mozilla-headline Medium, 14px, tracking loose (1px)
+// mozilla-headline Medium, 14px, tracking loose (1px). An optional masked icon
+// sits before the label, as on the social links.
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({
+  href,
+  iconClass,
+  children,
+}: {
+  href: string
+  iconClass?: string
+  children: React.ReactNode
+}) {
   return (
     <Link
       href={href}
       className={[
+        'flex gap-8 items-center',
         'font-display font-[600]',
         'text-body-lg tracking-wide',
         'text-[var(--link-rest)]',
@@ -125,6 +138,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
         'whitespace-nowrap',
       ].join(' ')}
     >
+      {iconClass && <span className={`nav-social-icon ${iconClass}`} aria-hidden="true" />}
       {children}
     </Link>
   )

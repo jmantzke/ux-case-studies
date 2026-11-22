@@ -34,6 +34,7 @@ Push to `main` → `.github/workflows/deploy.yml` runs on GitHub Actions: `npm c
 | `/` (`app/page.tsx`) | Home — grid of `published` case-study cards. |
 | `/bio` | Biography article — portrait, bio copy, certification badges. |
 | `/enfineitz` | "What is Enfineitz?" manifesto, with rotating `ManifestoImage`. |
+| `/fake-papoose` | Fake Papoose music page with the interactive vinyl player (`components/fake-papoose/`). Assets in `public/fake-papoose/`. Play counts come from `public/api/plays.php`, the one PHP file in the export (data lives outside the web root); test it locally with `npm run preview` (port 8090). |
 | `/case-study/[slug]` | Case-study template; `generateStaticParams()` emits one static page per published slug. |
 | `/403`, `/408`, `/415`, `/500`, `/502`, `/503` | Plain static pages rendering `ErrorPage`. **Not** framework error handlers — Apache on the VPS serves them via `ErrorDocument` directives. |
 | `app/not-found.tsx` | Next.js special file → static `404.html`. |

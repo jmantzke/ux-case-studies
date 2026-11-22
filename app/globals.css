@@ -67,6 +67,14 @@
   --surface-page-alt: #3a4246;
   --surface-card-rest: #4c585e;
   --surface-card-hover: #2a2f32;
+  --surface-record-player-cabinet: #8ca0a8;
+  --surface-record-player-control-panel: #4c585e;
+  --vinyl-console-rpm-glow: #f39806;
+  --vinyl-button-text-icon-rest: #ffffffcc;
+  --vinyl-button-text-icon-hover: #fff0c4;
+  --vinyl-button-text-icon-focus: #fff0c4;
+  --vinyl-button-text-icon-active: #ffa632;
+  --vinyl-button-text-icon-inactive: #ffffff4d;
   --text-body: #1f2224;
   --text-header: #ffa632;
   --text-header-reversed: #ffa632;
@@ -95,6 +103,14 @@
   --surface-page-alt: #3a4246;
   --surface-card-rest: #2a2f32;
   --surface-card-hover: #4c585e;
+  --surface-record-player-cabinet: #4c585e;
+  --surface-record-player-control-panel: #626b70;
+  --vinyl-console-rpm-glow: #f39806;
+  --vinyl-button-text-icon-rest: #ffffffcc;
+  --vinyl-button-text-icon-hover: #fff0c4;
+  --vinyl-button-text-icon-focus: #fff0c4;
+  --vinyl-button-text-icon-active: #ffa632;
+  --vinyl-button-text-icon-inactive: #ffffff4d;
   --text-body: #ffffff;
   --text-header: #f39806;
   --text-header-reversed: #f39806;
@@ -123,6 +139,177 @@
   --motion-blade-angle: 15deg;
   --motion-blade-press-boost: 10deg;
   --motion-blade-origin: 100% 50%;
+  --motion-ease-out: cubic-bezier(0, 0, 0.58, 1);
+  --motion-ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --motion-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --motion-vinyl-highlight-1-rotation: 12deg;
+  --motion-vinyl-highlight-2-rotation: 4deg;
+  --motion-vinyl-highlight-1-duration: 2000ms;
+  --motion-vinyl-highlight-2-duration: 1800ms;
+  --motion-vinyl-sticker-rpm: 33.333;
+  --motion-vinyl-sticker-start-duration: 900ms;
+  --motion-vinyl-sticker-stop-duration: 1800ms;
+  --motion-vinyl-sticker-crossfade-duration: 60ms;
+  --motion-vinyl-tonearm-to-start-duration: 700ms;
+  --motion-vinyl-tonearm-return-duration: 700ms;
+  --motion-vinyl-tonearm-next-track-duration: 700ms;
+  --motion-vinyl-cartridge-state-fade-duration: 30ms;
+  --motion-vinyl-needle-drop-delay: 200ms;
+}
+
+/* ─── Layout tokens per breakpoint (auto-generated from "grid and breakpoints") ─ */
+/* XS */
+:root {
+  --grid-margin: 16px;
+  --grid-gutter: 32px;
+  --grid-columns: 4;
+  --layout-navigation-gap: 32px;
+  --layout-navigation-width: 639px;
+  --layout-content-min-width: 288px;
+  --layout-content-max-width: 639px;
+  --header-padding-inline: 16px;
+  --body-min-width: 288px;
+  --body-max-width: 639px;
+  --vinyl-tracklist-width: 639px;
+  --vinyl-tracklist-group-gap: 32px;
+  --vinyl-tracklist-track-gap: 32px;
+  --vinyl-tracklist-columns: 1;
+  --vinyl-tracklist-column-min-width: 288px;
+  --vinyl-album-cover-large-max-width: 160px;
+  --vinyl-album-cover-small-max-width: 60px;
+  --vinyl-album-cover-max-width: 200px;
+  --vinyl-album-cover-min-width: 32px;
+  --vinyl-button-margin-top: 6px;
+  --vinyl-button-margin-bottom: 8px;
+  --vinyl-button-width: 48px;
+  --vinyl-button-icon: 12px;
+  --vinyl-button-small-icon: 12px;
+  --vinyl-button-smallest-button-text: 70px;
+  --vinyl-gap: 32px;
+  --containers-chat-window-user-min-width: 240px;
+  --containers-chat-window-user-max-width: 345px;
+  --containers-chat-window-ai-min-width: 265px;
+  --containers-chat-window-ai-max-width: 345px;
+  --containers-corner-decoration-w-h: 30px;
+  --containers-images-min-width: 200px;
+  --containers-images-max-width: 600px;
+  --containers-images-manifesto-height: 160px;
+  --containers-caption-min-width: 300px;
+  --containers-caption-max-width: 700px;
+  --containers-case-study-min-width: 185px;
+  --containers-case-study-max-width: 900px;
+  --containers-case-study-margins: 32px;
+  --containers-case-study-card-margins: 20px;
+  --containers-case-study-card-height: 140px;
+  --containers-case-study-title-subtitle-gap: 12px;
+  --sizes-badge-cert-width: 70px;
+  --sizes-badge-cert-height: 70px;
+  --sizes-unique-icon-height: 28px;
+  --sizes-avatar-width: 72px;
+  --sizes-text-column-max-width: 700px;
+  --decorative-edge-svg-offset: 0px;
+}
+
+/* SM */
+@media (min-width: 672px) {
+  :root {
+    --grid-margin: 32px;
+    --grid-columns: 8;
+    --layout-navigation-width: 991px;
+    --layout-content-min-width: 608px;
+    --layout-content-max-width: 991px;
+    --header-padding-inline: 32px;
+    --body-min-width: 608px;
+    --body-max-width: 991px;
+    --vinyl-tracklist-width: 991px;
+    --vinyl-tracklist-columns: 2;
+    --vinyl-album-cover-large-max-width: 300px;
+    --vinyl-album-cover-small-max-width: 72px;
+    --vinyl-button-margin-top: 8px;
+    --vinyl-button-margin-bottom: 10px;
+    --vinyl-button-width: 60px;
+    --containers-chat-window-user-min-width: 200px;
+    --containers-corner-decoration-w-h: 32px;
+    --containers-images-max-width: 700px;
+    --containers-images-manifesto-height: 180px;
+    --containers-caption-min-width: 400px;
+    --containers-case-study-min-width: 300px;
+    --containers-case-study-margins: 48px;
+    --containers-case-study-card-margins: 32px;
+    --containers-case-study-card-height: 160px;
+    --containers-case-study-title-subtitle-gap: 18px;
+  }
+}
+
+/* MD */
+@media (min-width: 1056px) {
+  :root {
+    --grid-columns: 16;
+    --layout-navigation-width: 288px;
+    --layout-content-min-width: 672px;
+    --layout-content-max-width: 927px;
+    --body-min-width: 992px;
+    --body-max-width: 1247px;
+    --vinyl-tracklist-width: 1247px;
+    --vinyl-album-cover-large-max-width: 500px;
+    --vinyl-album-cover-max-width: 500px;
+    --vinyl-album-cover-min-width: 36px;
+    --vinyl-button-margin-bottom: 12px;
+    --vinyl-button-width: 82px;
+    --vinyl-button-icon: 18px;
+    --vinyl-button-small-icon: 16px;
+    --containers-corner-decoration-w-h: 40px;
+    --containers-images-max-width: 800px;
+    --containers-images-manifesto-height: 300px;
+    --containers-caption-min-width: 600px;
+    --containers-case-study-max-width: 1000px;
+    --containers-case-study-margins: 64px;
+    --containers-case-study-card-height: 180px;
+    --containers-case-study-title-subtitle-gap: 24px;
+    --sizes-avatar-width: 96px;
+  }
+}
+
+/* LG */
+@media (min-width: 1312px) {
+  :root {
+    --layout-navigation-width: 300px;
+    --layout-content-min-width: 880px;
+    --layout-content-max-width: 1151px;
+    --body-min-width: 1248px;
+    --body-max-width: 1519px;
+    --vinyl-tracklist-width: 360px;
+    --vinyl-tracklist-columns: 1;
+    --vinyl-tracklist-column-min-width: 360px;
+    --vinyl-button-margin-top: 12px;
+    --vinyl-button-icon: 24px;
+    --containers-chat-window-user-max-width: 380px;
+    --containers-chat-window-ai-min-width: 300px;
+    --containers-chat-window-ai-max-width: 360px;
+    --containers-images-max-width: 1000px;
+    --containers-images-manifesto-height: 420px;
+    --containers-caption-max-width: 800px;
+    --containers-case-study-max-width: 1200px;
+    --sizes-avatar-width: 128px;
+  }
+}
+
+/* XL */
+@media (min-width: 1584px) {
+  :root {
+    --grid-margin: 0px;
+    --layout-content-min-width: 1151px;
+    --header-padding-inline: 40px;
+    --body-min-width: 1519px;
+    --vinyl-button-smallest-button-text: 80px;
+    --containers-chat-window-user-max-width: 400px;
+    --containers-chat-window-ai-min-width: 360px;
+    --containers-chat-window-ai-max-width: 400px;
+    --containers-corner-decoration-w-h: 48px;
+    --containers-caption-min-width: 0px;
+    --containers-caption-max-width: 0px;
+    --containers-case-study-margins: 72px;
+  }
 }
 
 /* ─── Social icons ───────────────────────────────────────────────────────────
@@ -159,9 +346,9 @@
   -webkit-mask-image: url('/icons/soundcloud.svg');
   mask-image: url('/icons/soundcloud.svg');
 }
-.nav-social-icon--upwork {
-  -webkit-mask-image: url('/icons/upwork.svg');
-  mask-image: url('/icons/upwork.svg');
+.nav-social-icon--fake-papoose {
+  -webkit-mask-image: url('/icons/fake-papoose.svg');
+  mask-image: url('/icons/fake-papoose.svg');
 }
 
 /* ─── Page background ─────────────────────────────────────────────────────────
