@@ -7,6 +7,7 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 import Navigation from '@/components/Navigation'
 import CornerDecoration from '@/components/CornerDecoration'
 import CurrentYear from '@/components/CurrentYear'
+import SiteVersion from '@/components/SiteVersion'
 import GlobalHeader from '@/components/GlobalHeader'
 import HomeRailGlyph from '@/components/HomeRailGlyph'
 import HomeRevealShift from '@/components/HomeRevealShift'
@@ -158,10 +159,13 @@ function StackedLayout() {
       {/* ── Card grid ── */}
       <CardGrid className="gap-8 px-12 py-16 sm:p-16" />
 
-      {/* ── Copyright ── */}
-      <p className="py-16 font-body font-normal text-[11px] leading-none text-[var(--text-caption)] whitespace-nowrap">
-        ©<CurrentYear from={new Date().getFullYear()} /> Enfineitz LLC
-      </p>
+      {/* ── Copyright and site version ── */}
+      <div className="flex flex-col items-center gap-8 py-16 font-body font-normal text-[11px] leading-none text-[var(--text-caption)] whitespace-nowrap">
+        <p>
+          ©<CurrentYear from={new Date().getFullYear()} /> Enfineitz LLC
+        </p>
+        <SiteVersion />
+      </div>
     </div>
   )
 }

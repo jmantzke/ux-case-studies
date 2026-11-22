@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import CurrentYear from '@/components/CurrentYear'
+import SiteVersion from '@/components/SiteVersion'
 
 // ─── Navigation ────────────────────────────────────────────────────────────────
 // Shared navigation panel — used in the Home left rail, the Article/Case Study
@@ -95,18 +96,18 @@ export default function Navigation({
 // ─── Copyright ────────────────────────────────────────────────────────────────
 
 function Copyright() {
+  const text = [
+    'font-body font-normal',
+    'text-label leading-none tracking-normal',
+    'text-[var(--text-caption)]',
+    'whitespace-nowrap',
+  ].join(' ')
   return (
-    <div className="flex items-center py-16 w-full shrink-0">
-      <p
-        className={[
-          'font-body font-normal',
-          'text-label leading-none tracking-normal',
-          'text-[var(--text-caption)]',
-          'whitespace-nowrap',
-        ].join(' ')}
-      >
+    <div className="flex flex-col items-start gap-8 py-16 w-full shrink-0">
+      <p className={text}>
         ©<CurrentYear from={new Date().getFullYear()} /> Enfineitz LLC
       </p>
+      <SiteVersion className={text} />
     </div>
   )
 }
