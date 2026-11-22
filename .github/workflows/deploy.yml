@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          # full history: the site version is the commit count (next.config.ts)
+          # full history + tags: the site version comes from the latest v* tag (next.config.ts)
           fetch-depth: 0
 
       - name: Setup Node
